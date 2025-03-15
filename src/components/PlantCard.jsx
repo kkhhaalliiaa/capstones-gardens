@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../public/css/plants.scss";
+import "../../public/css/PlantCard.scss";
 const PlantCard = ({ plant }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
