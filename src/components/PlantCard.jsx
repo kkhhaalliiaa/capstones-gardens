@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import "../../public/css/PlantCard.scss";
+
 const PlantCard = ({ plant }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -9,6 +12,10 @@ const PlantCard = ({ plant }) => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
   };
 
   return (
@@ -64,7 +71,9 @@ const PlantCard = ({ plant }) => {
                 ))}
               </div>
             )}
-            <span className="favorite-icon">❤️</span>
+            <span className="favorite-icon" onClick={toggleFavorite}>
+              {isFavorite ? <FaHeart /> : <FaRegHeart />}
+            </span>
           </div>
         </div>
       )}
