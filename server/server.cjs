@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const path = require("path");
 const cors = require("cors");
 const plantRoute = require("./routes/plantRoute.cjs");
+const chatbotRoute = require("./routes/chatbotRoute.cjs");
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 console.log(
@@ -23,6 +24,7 @@ app.use("/register", require("./routes/registerRoute.cjs"));
 app.use("/users", require("./routes/userRoute.cjs"));
 
 app.use("/api/listPlants", plantRoute);
+app.use("/api/chatbot", chatbotRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
