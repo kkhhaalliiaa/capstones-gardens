@@ -24,7 +24,7 @@ app.use("/register", require("./routes/registerRoute.cjs"));
 app.use("/users", require("./routes/userRoute.cjs"));
 
 app.use("/api/listPlants", plantRoute);
-app.use("/api/chatbot", chatbotRoute);
+app.use("/api", chatbotRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
