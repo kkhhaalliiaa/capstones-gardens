@@ -1,0 +1,173 @@
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Floating Chatbot Button */
+.chatbot-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #8b9a72;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Open Chatbox */
+.chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 420px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+/* Chatbox Header */
+.chatbox-header {
+    background-color: #8b9a72;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Messages Section */
+.chatbox-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* User & Assistant Messages */
+.message {
+    padding: 8px 12px;
+    border-radius: 8px;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+.message.user {
+    background-color: #b3a589;
+    color: white;
+    align-self: flex-end;
+}
+
+.message.assistant {
+    background-color: #d9e4c4;
+    color: black;
+    align-self: flex-start;
+}
+
+/* Chatbox Input */
+.chatbox-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: white;
+}
+
+.chatbox-input input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+
+.chatbox-input button {
+    padding: 8px 12px;
+    margin-left: 8px;
+    border: none;
+    background-color: #8b9a72;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chatbox-input button:hover {
+    background-color: #6f7d58;
+}
+
+/* 📱 Mobile Responsiveness */
+@media (max-width: 768px) {
+    .chatbox {
+        width: 95%; /* 🛠️ Adjusts to fit smaller screens */
+        height: 65vh; /* 📏 Keeps it readable on mobile */
+        bottom: 10px; /* 🏗️ Moves it up slightly */
+        right: 10px;
+    }
+
+    .chatbox-header {
+        font-size: 1rem; /* 🔍 Makes text smaller */
+        padding: 10px;
+    }
+
+    .chatbox-messages {
+        padding: 8px;
+    }
+
+    .message {
+        font-size: 0.9rem; /* 🔍 Adjust text for smaller screens */
+    }
+
+    .chatbox-input input {
+        padding: 6px;
+    }
+
+    .chatbox-input button {
+        padding: 6px 10px;
+        font-size: 0.9rem;
+    }
+
+    .chatbot-icon {
+        width: 50px; /* 📏 Slightly smaller button */
+        height: 50px;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .chatbox {
+        width: 90%;
+        height: 75vh; /* 🛠️ Adjust height for very small screens */
+        bottom: 5px;
+        right: 5px;
+    }
+
+    .chatbox-input input {
+        font-size: 0.9rem;
+    }
+
+    .chatbox-input button {
+        font-size: 0.8rem;
+    }
+
+    .chatbot-icon {
+        width: 45px; /* 📏 Even smaller for tiny screens */
+        height: 45px;
+        font-size: 1.6rem;
+    }
+}
