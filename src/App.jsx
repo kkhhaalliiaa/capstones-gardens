@@ -10,6 +10,7 @@ import Signup from "./pages/Signup.jsx";
 import Plants from "./pages/Plants.jsx";
 import User from "./pages/User.jsx";
 import Admin from "./pages/Admin.jsx";
+import Chatbot from "./components/Chatbot.jsx";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/user" element={<User />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
         </Routes>
+        <Chatbot />
         <Footer />
       </Router>
     </>
