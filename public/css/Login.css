@@ -1,9 +1,3 @@
-:root {
-  --color-tan: #b3a589;
-  --color-olive: #8b9a72;
-  --color-sage: #b2bea2;
-}
-
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   margin: 0;
@@ -161,5 +155,6 @@ button[type="submit"]:hover {
 
   .login-photo img {
     max-width: 100%;
+    height: 20em;
   }
 }
