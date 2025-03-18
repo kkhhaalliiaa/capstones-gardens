@@ -1,0 +1,23 @@
+:root {
+  --color-tan: #b3a589;
+  --color-olive: #8b9a72;
+  --color-sage: #b2bea2;
+}
+
+.plants {
+  padding: 2rem;
+  background-color: #f9f7f2;
+  min-height: 100vh;
+}
+.plants h1 {
+  color: var(--color-olive);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.plants .plants-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  justify-content: center;
+}/*# sourceMappingURL=PlantsPage.css.map */

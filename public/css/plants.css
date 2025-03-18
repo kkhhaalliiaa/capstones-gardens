@@ -1,0 +1,98 @@
+:root {
+  --color-tan: #b3a589;
+  --color-olive: #8b9a72;
+  --color-sage: #b2bea2;
+}
+
+.plants {
+  padding: 2rem;
+  background-color: #f9f7f2;
+  min-height: 100vh;
+}
+.plants h1 {
+  color: var(--color-olive);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.plants .plants-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+.plants .plant-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.plants .plant-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.plants .plant-card .plant-image {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.plants .plant-card .plant-name {
+  text-align: center;
+  padding: 1rem;
+  color: var(--color-olive);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.plants .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.plants .modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.plants .modal-overlay .modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+.plants .modal-overlay .modal-content .close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-olive);
+}
+.plants .modal-overlay .modal-content h2 {
+  color: var(--color-olive);
+  margin-bottom: 1rem;
+}
+.plants .modal-overlay .modal-content p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+.plants .modal-overlay .modal-content .favorite-icon {
+  color: var(--color-tan);
+  font-size: 1.5rem;
+  cursor: pointer;
+  float: right;
+}/*# sourceMappingURL=plants.css.map */
