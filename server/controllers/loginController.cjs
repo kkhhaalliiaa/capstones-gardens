@@ -2,16 +2,17 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const connection = require('../config/dbconfig.cjs');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret'; // Use environment variable
+const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
 
 const handleLogin = (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-        return res.status(400).json({ message: 'Please enter all fields' });
+        return res.status(400).json({ message: 'Please enter both email and password' });
     }
 
-    const findUserQuery = 'SELECT * FROM users WHERE email = ?';
+    // Correcting the SQL query to use `user_id`
+    const findUserQuery = 'SELECT user_id, username, first_name, last_name, password_hash FROM users WHERE email = ?';
 
     connection.query(findUserQuery, [email], async (err, results) => {
         if (err) {
@@ -31,15 +32,25 @@ const handleLogin = (req, res) => {
             return res.status(400).json({ message: 'Invalid email or password' });
         }
 
-        // Generate JWT Token
-        const payload = { user: { id: user.id, email: user.email, role: user.role_id } };
+        // Generate JWT Token with correct user_id
+        const payload = { user: { user_id: user.user_id, email: email } };
 
         jwt.sign(payload, JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
             if (err) {
                 console.error(err);
                 return res.status(500).json({ message: 'Error generating token' });
             }
-            res.json({ token, message: 'Login successful' });
+
+            res.json({
+                token,
+                user: {
+                    user_id: user.user_id, // Fix: Use `user_id` instead of `id`
+                    username: user.username,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                },
+                message: 'Login successful'
+            });
         });
     });
 };
