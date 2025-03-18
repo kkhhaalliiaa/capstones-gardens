@@ -30,32 +30,12 @@ const Admin = () => {
     }
   };
 
-  const handleMarkAsRead = async (commentId) => {
-    try {
-      await axios.put(`${API_BASE_URL}/comments/${commentId}`, { read: true });
-      setComments(comments.map(comment =>
-        comment.id === commentId ? { ...comment, read: true } : comment
-      ));
-    } catch (error) {
-      console.error("Error marking comment as read:", error);
-    }
-  };
-
   const handleDeleteComment = async (commentId) => {
     try {
       await axios.delete(`${API_BASE_URL}/comments/${commentId}`);
-      setComments(comments.filter(comment => comment.id !== commentId));
+      setComments((prevComments) => prevComments.filter(comment => comment.id !== commentId));
     } catch (error) {
       console.error("Error deleting comment:", error);
-    }
-  };
-
-  const handleDeleteUser = async (userId) => {
-    try {
-      await axios.delete(`${API_BASE_URL}/users/${userId}`);
-      setUsers(users.filter(user => user.user_id !== userId));
-    } catch (error) {
-      console.error("Error deleting user:", error);
     }
   };
 
@@ -88,6 +68,7 @@ const Admin = () => {
           </button>
         </div>
 
+        {/* Comments Section */}
         {activeTab === 'comments' && (
           <div className="admin-section-container">
             <h2 className="admin-section-title">Recent Comments</h2>
@@ -95,35 +76,19 @@ const Admin = () => {
               {comments.length > 0 ? (
                 <div className="admin-comments-list">
                   {comments.map(comment => (
-                    <div
-                      key={comment.id}
-                      className={`admin-comment-card ${comment.read ? 'admin-comment-read' : 'admin-comment-unread'}`}
-                    >
+                    <div key={comment.id} className="admin-comment-card">
                       <div className="admin-comment-header">
-                        <div>
-                          <p className="admin-user-name">{comment.userName}</p>
-                          <p className="admin-comment-date">{comment.date}</p>
-                        </div>
-                        <div className="admin-comment-actions">
-                          {!comment.read && (
-                            <button
-                              onClick={() => handleMarkAsRead(comment.id)}
-                              className="admin-mark-read-button"
-                              aria-label="Mark as read"
-                            >
-                              <CheckCircle className="admin-icon" />
-                            </button>
-                          )}
-                          <button
-                            onClick={() => handleDeleteComment(comment.id)}
-                            className="admin-delete-button"
-                            aria-label="Delete comment"
-                          >
-                            <Trash2 className="admin-icon" />
-                          </button>
-                        </div>
+                        <p className="admin-user-name">{comment.name}</p>
+                        <p className="admin-comment-date">{new Date(comment.created_at).toLocaleString()}</p>
+                        <button
+                          onClick={() => handleDeleteComment(comment.id)}
+                          className="admin-delete-button"
+                          aria-label="Delete comment"
+                        >
+                          <Trash2 className="admin-icon" />
+                        </button>
                       </div>
-                      <p className="admin-comment-content">{comment.content}</p>
+                      <p className="admin-comment-content">{comment.message}</p>
                     </div>
                   ))}
                 </div>
@@ -134,6 +99,7 @@ const Admin = () => {
           </div>
         )}
 
+        {/* Users Section */}
         {activeTab === 'users' && (
           <div className="admin-section-container">
             <h2 className="admin-section-title">User Management</h2>

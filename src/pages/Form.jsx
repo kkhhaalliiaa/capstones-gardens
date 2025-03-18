@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios"; // Import axios for API requests
 import "../../public/css/Form.css";
 
 const ContactForm = () => {
@@ -6,16 +7,32 @@ const ContactForm = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
 
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setName("");
-    setEmail("");
-    setMessage("");
+    try {
+      // Send a POST request to the correct backend API
+      await axios.post("http://localhost:3002/comments", {
+        name,
+        email,
+        message,
+      });
 
-    setTimeout(() => setSubmitted(false), 3000);
+      // Clear input fields
+      setName("");
+      setEmail("");
+      setMessage("");
+      setSubmitted(true);
+      setError(null);
+
+      // Hide success message after 3 seconds
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err) {
+      console.error("Error submitting message:", err);
+      setError("Failed to send message. Please try again later.");
+    }
   };
 
   return (
@@ -63,6 +80,8 @@ const ContactForm = () => {
             <button type="submit">Send Message</button>
           </form>
         )}
+
+        {error && <p className="error-message">{error}</p>}
       </div>
     </section>
   );
