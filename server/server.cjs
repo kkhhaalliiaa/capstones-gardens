@@ -9,7 +9,7 @@ const chatbotRoute = require("./routes/chatbotRoute.cjs");
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3002;
 
 app.use(cors({ origin: "http://localhost:5173" })); // Make sure this matches your frontend URL
 app.use(express.json());
