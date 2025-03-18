@@ -18,15 +18,12 @@ const Chatbot = () => {
     const sendMessage = async () => {
         if (!input.trim()) return;
 
-        const userMessage = { role: "user", content: input };
-        setMessages([...messages, userMessage]);
+        setMessages([...messages, { role: "user", content: input }]);
         setInput("");
-        setIsLoading(true); 
+        setIsLoading(true);
 
-        //Sends full chat history to backend
-        const botResponse = await fetchChatbotResponse(input, messages);
-
-        setIsLoading(false); 
+        const botResponse = await fetchChatbotResponse(input);
+        setIsLoading(false);
         setMessages((prevMessages) => [...prevMessages, { role: "assistant", content: botResponse }]);
     };
 
@@ -40,6 +37,7 @@ const Chatbot = () => {
                 <div className="chatbox">
                     <div className="chatbox-header">
                         <h3>Chatbot</h3>
+                        <X className="close-btn" onClick={toggleChatbot} /> {/* X button always visible */}
                     </div>
                     <div className="chatbox-messages">
                         {messages.map((msg, index) => (
@@ -69,4 +67,5 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
+
 
