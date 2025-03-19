@@ -129,7 +129,7 @@ const Home = () => {
 
 
       <div className="section-divider-container">
-        <span className="divider-text">Contact us</span>
+        <span className="divider-text">Grow With Us</span>
       </div>
 
       {/* Contact Form Section */}

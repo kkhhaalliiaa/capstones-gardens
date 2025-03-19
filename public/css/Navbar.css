@@ -28,33 +28,118 @@ nav {
   color: var(--color-tan);
 }
 
-.nav-links {
+nav ul {
   display: flex;
-  gap: 1.5rem;
-  font-size: 1.5rem;
-  flex-direction: row;
-  align-items: flex-start;
+  gap: 3rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-links a {
-  color: white;
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav li a {
+  color: #ffffff;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 1.2rem;
 }
-
-.nav-links a:hover {
-  color: var(--color-tan);
+nav li a:hover {
+  background-color: var(--color-tan);
+  color: white;
 }
 
 .nav-login-button {
   background-color: var(--color-tan);
-  color: white;
+  color: #333;
   padding: 0.5em 1.5rem;
   border: transparent;
   border-radius: 5px;
   text-decoration: none;
-  font-weight: bold;
+  /* font-weight: bold; */
   font-size: 1.2rem;
   transition: background-color 0.3s;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+/* Responsive design */
+
+@media (max-width: 1024px) {
+}
+
+/* Medium Tablets */
+@media (max-width: 900px) {
+}
+
+/* Small Tablets and Large Phones */
+@media (max-width: 768px) {
+  .menu {
+    display: flex;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-olive);
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(179, 165, 137, 0.2);
+  }
+
+  nav ul.open {
+    display: flex;
+    margin-top: 5%;
+  }
+
+  .menu:hover span {
+    background-color: #f2f2f2;
+  }
+
+  /* Hamburger menu animation */
+  .menu.open span:first-child {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu.open span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+}
+
+/* Super Small Mobile Phones */
+@media (max-width: 350px) {
 }

@@ -37,7 +37,7 @@ const Login = () => {
         localStorage.setItem(
           "user",
           JSON.stringify({
-            user_id: user.user_id, // FIXED: Changed `id` to `user_id`
+            user_id: user.user_id,
             username: user.username,
             first_name: user.first_name,
             last_name: user.last_name,
