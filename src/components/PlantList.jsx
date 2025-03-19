@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import PlantCard from "./PlantCard";
+import Lottie from "lottie-react";
+import animationData from "../../public/Animation - 1742346932775.json"; // Import Lottie JSON file
+import "./PlantList.css"; // Import CSS file for styling
 
 const PlantList = ({ query, filters }) => {
   const [data, setData] = useState({ plants: [] });
@@ -56,7 +59,15 @@ const PlantList = ({ query, filters }) => {
     );
   });
 
-  if (loading) return <div>Loading plants...</div>;
+  if (loading)
+    return (
+      <div className="loading-container">
+        <Lottie
+          animationData={animationData}
+          style={{ height: 200, width: 200 }}
+        />
+      </div>
+    );
   if (error) return <div>Error loading plants: {error}</div>;
 
   return (
