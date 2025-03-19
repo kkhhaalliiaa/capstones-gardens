@@ -3,15 +3,16 @@ const app = express();
 const dotenv = require("dotenv");
 const path = require("path");
 const cors = require("cors");
+const helmet = require("helmet");
 const plantRoute = require("./routes/plantRoute.cjs");
 const chatbotRoute = require("./routes/chatbotRoute.cjs");
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
-
 const PORT = process.env.PORT || 3002;
 
 app.use(cors({ origin: "http://localhost:5173" })); // Make sure this matches your frontend URL
+app.use(helmet());
 app.use(express.json());
 
 app.use("/login", require("./routes/loginRoute.cjs"));

@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET = process.env.JWT_SECRET || "your_jwt_secret";
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // Middleware to verify JWT
 const verifyToken = (req, res, next) => {
@@ -23,8 +23,8 @@ const verifyToken = (req, res, next) => {
 
 // Middleware to check if the user is an admin
 const isAdmin = (req, res, next) => {
-  if (req.user.role !== 1) {
-    // Assuming role_id 1 is for admin
+  const { role_id } = req.user; // Assuming `req.user` is populated by `verifyToken`
+  if (role_id !== 1) {
     return res.status(403).json({ message: "Access denied. Admins only." });
   }
   next();
