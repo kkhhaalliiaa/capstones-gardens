@@ -1,14 +1,13 @@
-
-
 .plants {
   padding: 2rem;
   background-color: #f9f7f2;
   min-height: 100vh;
 
   h1 {
-    color: var(--color-olive);
+    color: var(--color-brown);
     text-align: center;
     margin-bottom: 2rem;
+    font-size: 2.2rem;
   }
 
   .search-and-help {
@@ -30,10 +29,10 @@
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1rem;
     font-size: 1rem;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
 
     &:hover {
@@ -42,8 +41,8 @@
   }
 
   .plants-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex; // Changed from grid to flex
+    flex-wrap: wrap; // Allow wrapping of items
     gap: 2rem;
     padding: 1rem;
     justify-content: center;

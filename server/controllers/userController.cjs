@@ -3,13 +3,13 @@ const connection = require("../config/dbconfig.cjs");
 
 const getAllUsers = (req, res) => {
   const query =
-    "SELECT id, first_name, last_name, email, role_id, join_date, status FROM users";
+    "SELECT user_id AS id, first_name, last_name, email, role_id, join_date, status FROM users"; // Ensure correct column names
   connection.query(query, (err, results) => {
     if (err) {
       console.error("Database Error:", err);
       return res.status(500).json({ message: "Server Error", error: err });
     }
-    res.json(results);
+    res.json(results); // Return all users
   });
 };
 

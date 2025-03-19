@@ -2,6 +2,7 @@
   --color-tan: #b3a589;
   --color-olive: #8b9a72;
   --color-sage: #b2bea2;
+  --color-brown: #625d5d;
 }
 
 .plants {
@@ -10,7 +11,7 @@
   min-height: 100vh;
 
   h1 {
-    color: var(--color-olive);
+    color: var(--color-brown);
     text-align: center;
     margin-bottom: 2rem;
   }
