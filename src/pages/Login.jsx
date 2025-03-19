@@ -75,6 +75,16 @@ const Login = () => {
           })
         );
 
+        // Track logged-in users
+        const loggedInUsers =
+          JSON.parse(localStorage.getItem("loggedInUsers")) || [];
+        loggedInUsers.push({
+          user_id: user.user_id,
+          username: user.username,
+          loginTime: new Date().toISOString(),
+        });
+        localStorage.setItem("loggedInUsers", JSON.stringify(loggedInUsers));
+
         navigate("/"); // Redirect after login
       }
     } catch (err) {
