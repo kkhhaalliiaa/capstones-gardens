@@ -2,10 +2,10 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const getChatbotResponse = async (req, res) => {
-    const OpenAI = (await import("openai")).default; //dynamic import workaround for cjs to ESM
+    const OpenAI = (await import("openai")).default;
     const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-    const { message } = req.body;
+    const { message, chatHistory = [] } = req.body; //Accepts chat history from the frontend
 
     if (!process.env.OPENAI_API_KEY) {
         return res.status(500).json({ message: 'OpenAI API key not found' });
@@ -17,9 +17,9 @@ const getChatbotResponse = async (req, res) => {
     - General gardening knowledge, including plant care, soil improvement, composting, and organic gardening.
 
     IMPORTANT RULES:
-    - If a user asks for a soil type, analyze their location and provide the most likely soil type.
-    - If a question is unrelated to gardening (e.g., politics, technology, finance, entertainment, personal advice), politely respond: 
-        "I can only assist with gardening and soil-related questions."
+    - If the user has previously provided a location, remember it throughout the conversation.
+    - If they ask about suitable plants and have given a location, use that location to provide recommendations.
+    - If a question is unrelated to gardening (e.g., politics, finance, technology), politely refuse to answer.
     - Do NOT provide medical advice, personal opinions, or non-gardening responses.
     - Keep responses concise and informative.
 
@@ -38,17 +38,20 @@ const getChatbotResponse = async (req, res) => {
     `;
 
     try {
+        const messages = [
+            { role: "system", content: systemPrompt },
+            ...chatHistory, //Previous conversation messages
+            { role: "user", content: message }
+        ];
+
         const completion = await openai.chat.completions.create({
             model: "gpt-4o",
-            messages: [
-                { role: "system", content: systemPrompt },
-                { role: "user", content: message }
-            ],
-            max_tokens: 999,
+            messages: messages,
+            max_tokens: 200,
             temperature: 0.5
         });
 
-        if (!completion.choices || !completion.choices.length === 0) {
+        if (!completion.choices || completion.choices.length === 0) {
             console.error("OpenAI returned an unexpected response:", completion);
             throw new Error("Invalid response from OpenAI");
         }
@@ -57,15 +60,14 @@ const getChatbotResponse = async (req, res) => {
 
         res.json({ response: chatbotMessage });
 
-        } catch (error) {
+    } catch (error) {
         console.error("OpenAI chatbot Error:", error);
-
-        // Error message
         res.status(500).json({
             response: "Sorry, I couldn't process your request. Please try again later.",
-            error: error.message, // Error details for debugging
+            error: error.message,
         });
     }
 };
 
 module.exports = { getChatbotResponse };
+

@@ -49,6 +49,16 @@
     text-align: center;
     font-size: 1.2rem;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between; /* Ensures X button stays on the right */
+    align-items: center;
+}
+
+/* Ensures the X button always appears */
+.chatbox-header .close-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
 /* Messages Section */
@@ -79,6 +89,30 @@
     background-color: #d9e4c4;
     color: black;
     align-self: flex-start;
+}
+
+/* Typing Animation */
+.message.typing span {
+    display: inline-block;
+    animation: typing 1.5s infinite;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.message.typing span:nth-child(1) {
+    animation-delay: 0s;
+}
+.message.typing span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.message.typing span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes typing {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
 }
 
 /* Chatbox Input */
@@ -112,16 +146,16 @@
 }
 
 /* 📱 Mobile Responsiveness */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .chatbox {
-        width: 95%; /* 🛠️ Adjusts to fit smaller screens */
-        height: 65vh; /* 📏 Keeps it readable on mobile */
-        bottom: 10px; /* 🏗️ Moves it up slightly */
-        right: 10px;
+        width: 400px;
+        height: 60vh;
+        bottom: 90px;
+        right: 2%;
     }
 
     .chatbox-header {
-        font-size: 1rem; /* 🔍 Makes text smaller */
+        font-size: 1rem;
         padding: 10px;
     }
 
@@ -143,16 +177,16 @@
     }
 
     .chatbot-icon {
-        width: 50px; /* 📏 Slightly smaller button */
-        height: 50px;
+        width: 60px; /* 📏 Slightly smaller button */
+        height: 60px;
         font-size: 1.8rem;
     }
 }
 
 @media (max-width: 480px) {
     .chatbox {
-        width: 90%;
-        height: 75vh; /* 🛠️ Adjust height for very small screens */
+        width: 60%;
+        height: 55vh; /* 🛠️ Adjust height for very small screens */
         bottom: 5px;
         right: 5px;
     }
