@@ -21,6 +21,9 @@ const getChatbotResponse = async (req, res) => {
     - If they ask about suitable plants and have given a location, use that location to provide recommendations.
     - If a question is unrelated to gardening (e.g., politics, finance, technology), politely refuse to answer.
     - Do NOT provide medical advice, personal opinions, or non-gardening responses.
+    - **Always format lists properly** using bullet points
+    - **Use Markdown for bold text** to highlight plant categories.
+    - **Separate different plant types** with a clear break for better readability.
     - Keep responses concise and informative.
 
     Example Responses:
@@ -29,6 +32,30 @@ const getChatbotResponse = async (req, res) => {
 
     User 2: "What’s the best way to grow tomatoes?"
     Assistant: "Tomatoes thrive in well-drained, loamy soil with a pH of 6.0-6.8. Ensure they receive 6-8 hours of sunlight daily."
+
+    User 3: "What plants can grow well here?"
+    Assistant:  
+    "In Charlotte, NC, you can successfully grow a variety of plants. Consider these options:
+
+    - **Perennials**:  
+    - Coneflowers  
+    - Daylilies  
+    - Hostas  
+
+    - **Vegetables**:  
+    - Tomatoes (loamy, well-drained soil)  
+    - Peppers  
+    - Beans  
+
+    - **Shrubs**:  
+    - Hydrangeas  
+    - Viburnums  
+
+    - **Trees**:  
+    - Oaks  
+    - Maples  
+
+    Amending your soil with organic matter will further enhance plant growth and health."
 
     User 3: "Who won the Super Bowl?"
     Assistant: "I can only assist with gardening and soil-related questions."
@@ -47,7 +74,7 @@ const getChatbotResponse = async (req, res) => {
         const completion = await openai.chat.completions.create({
             model: "gpt-4o",
             messages: messages,
-            max_tokens: 200,
+            max_tokens: 400,
             temperature: 0.5
         });
 
