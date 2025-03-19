@@ -82,6 +82,16 @@ nav li a:hover {
   border-radius: 2px;
 }
 
+/* Responsive design */
+
+@media (max-width: 1024px) {
+}
+
+/* Medium Tablets */
+@media (max-width: 900px) {
+}
+
+/* Small Tablets and Large Phones */
 @media (max-width: 768px) {
   .menu {
     display: flex;
@@ -101,6 +111,7 @@ nav li a:hover {
 
   nav ul.open {
     display: flex;
+    margin-top: 5%;
   }
 
   .menu:hover span {
@@ -119,4 +130,16 @@ nav li a:hover {
   .menu.open span:last-child {
     transform: translateY(-7px) rotate(-45deg);
   }
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+}
+
+/* Super Small Mobile Phones */
+@media (max-width: 350px) {
 }
