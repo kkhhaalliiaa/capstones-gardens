@@ -25,6 +25,12 @@ export default function Plants() {
     setIsHelpModalOpen(false);
   };
 
+  const closeHelpModalOnOverlayClick = (e) => {
+    if (e.target.classList.contains("help-modal-overlay")) {
+      closeHelpModal();
+    }
+  };
+
   return (
     <div className="plants">
       <h1>Plants</h1>
@@ -38,7 +44,10 @@ export default function Plants() {
       <PlantList query={query} filters={filters} />
 
       {isHelpModalOpen && (
-        <div className="help-modal-overlay">
+        <div
+          className="help-modal-overlay"
+          onClick={closeHelpModalOnOverlayClick} 
+        >
           <div className="help-modal">
             <span className="close-modal" onClick={closeHelpModal}>
               &times;

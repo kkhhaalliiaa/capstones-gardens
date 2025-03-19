@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import DOMPurify from "dompurify";
 import "../../public/css/Signup.css";
 
 const Signup = () => {
@@ -8,12 +9,19 @@ const Signup = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");  // Add username state
+  const [username, setUsername] = useState(""); // Add username state
   const [agreement, setAgreement] = useState(false);
   const navigate = useNavigate(); // For redirect after successful signup
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Sanitize inputs
+    const sanitizedFirstName = DOMPurify.sanitize(firstName);
+    const sanitizedLastName = DOMPurify.sanitize(lastName);
+    const sanitizedEmail = DOMPurify.sanitize(email);
+    const sanitizedPassword = DOMPurify.sanitize(password);
+    const sanitizedUsername = DOMPurify.sanitize(username);
 
     // Ensure agreement checkbox is checked
     if (!agreement) {
@@ -22,21 +30,30 @@ const Signup = () => {
     }
 
     // Check if all fields are filled
-    if (!firstName || !lastName || !email || !password || !username) { // Check for username too
+    if (
+      !sanitizedFirstName ||
+      !sanitizedLastName ||
+      !sanitizedEmail ||
+      !sanitizedPassword ||
+      !sanitizedUsername
+    ) {
       alert("Please fill in all the fields.");
       return;
     }
 
     const userData = {
-      firstname: firstName,
-      lastname: lastName,
-      email: email,
-      password: password,
-      username: username, // Include username in the data
+      firstname: sanitizedFirstName,
+      lastname: sanitizedLastName,
+      email: sanitizedEmail,
+      password: sanitizedPassword,
+      username: sanitizedUsername,
     };
 
     try {
-      const response = await axios.post("http://localhost:3002/register", userData);
+      const response = await axios.post(
+        "http://localhost:3002/register",
+        userData
+      );
 
       if (response.status === 201) {
         // Redirect to login page after successful signup
@@ -45,8 +62,13 @@ const Signup = () => {
         alert("Signup failed. Please try again.");
       }
     } catch (error) {
-      console.error("Error during signup:", error.response ? error.response.data : error);
-      alert(error.response?.data?.message || "Signup failed. Please try again.");
+      console.error(
+        "Error during signup:",
+        error.response ? error.response.data : error
+      );
+      alert(
+        error.response?.data?.message || "Signup failed. Please try again."
+      );
     }
   };
 

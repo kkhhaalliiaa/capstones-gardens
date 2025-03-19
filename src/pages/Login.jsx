@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import DOMPurify from "dompurify";
 import "../../public/css/Login.css";
 
 const Login = () => {
@@ -13,15 +14,19 @@ const Login = () => {
     e.preventDefault();
     setError(""); // Clear previous errors
 
-    if (!email || !password) {
+    // Sanitize inputs
+    const sanitizedEmail = DOMPurify.sanitize(email);
+    const sanitizedPassword = DOMPurify.sanitize(password);
+
+    if (!sanitizedEmail || !sanitizedPassword) {
       setError("Please enter both email and password.");
       return;
     }
 
     try {
       const response = await axios.post("http://localhost:3002/login", {
-        email,
-        password,
+        email: sanitizedEmail,
+        password: sanitizedPassword,
       });
 
       if (response.status === 200) {

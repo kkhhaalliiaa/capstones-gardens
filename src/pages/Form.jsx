@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios"; // Import axios for API requests
+import DOMPurify from "dompurify";
 import "../../public/css/Form.css";
 
 const ContactForm = () => {
@@ -12,12 +13,17 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Sanitize inputs
+    const sanitizedName = DOMPurify.sanitize(name);
+    const sanitizedEmail = DOMPurify.sanitize(email);
+    const sanitizedMessage = DOMPurify.sanitize(message);
+
     try {
       // Send a POST request to the correct backend API
       await axios.post("http://localhost:3002/comments", {
-        name,
-        email,
-        message,
+        name: sanitizedName,
+        email: sanitizedEmail,
+        message: sanitizedMessage,
       });
 
       // Clear input fields
@@ -42,7 +48,9 @@ const ContactForm = () => {
         <p>Have questions? Send us a message!</p>
 
         {submitted ? (
-          <p className="success-message">Thank you! Your message has been sent.</p>
+          <p className="success-message">
+            Thank you! Your message has been sent.
+          </p>
         ) : (
           <form onSubmit={handleSubmit}>
             <label>
