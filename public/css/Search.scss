@@ -3,13 +3,12 @@
   justify-content: center;
 
   input {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--color-olive);
-    border-radius: 5px 0 0 5px;
-    outline: none;
-    font-size: 1rem;
-    width: 100%;
-    max-width: 400px;
+    padding: 0.4rem;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 4px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1.1rem;
   }
 
   button {
@@ -31,17 +30,22 @@
 
 @media (max-width: 600px) {
   .search-bar {
+    display: flex;
+    justify-content: center;
     flex-direction: column;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-    input {
-      border-radius: 5px;
-      margin-bottom: 0.5rem;
-      border-right: 1px solid var(--color-olive);
-    }
+  input {
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    border-right: 1px solid var(--color-olive);
+  }
 
-    button {
-      border-radius: 5px;
-      border-left: 1px solid var(--color-olive);
-    }
+  button {
+    border-radius: 5px;
+    border-left: 1px solid var(--color-olive);
   }
 }
