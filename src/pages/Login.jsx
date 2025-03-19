@@ -11,7 +11,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Clear previous errors
+    setError(""); 
 
     if (!email || !password) {
       setError("Please enter both email and password.");
@@ -19,7 +19,10 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3002/login", { email, password });
+      const response = await axios.post("http://localhost:3002/login", {
+        email,
+        password,
+      });
 
       if (response.status === 200) {
         const { token, user } = response.data;
@@ -29,7 +32,7 @@ const Login = () => {
         localStorage.setItem(
           "user",
           JSON.stringify({
-            user_id: user.user_id, // FIXED: Changed `id` to `user_id`
+            user_id: user.user_id,
             username: user.username,
             first_name: user.first_name,
             last_name: user.last_name,
@@ -77,7 +80,9 @@ const Login = () => {
             <div className="small-cont">
               <input type="checkbox" id="remember" name="remember" />
               <label htmlFor="remember">Remember Me</label>
-              <Link to="/forgot-password" className="forgot-password">Forgot Password?</Link>
+              <Link to="/forgot-password" className="forgot-password">
+                Forgot Password?
+              </Link>
             </div>
           </div>
           <button type="submit">Sign In</button>

@@ -8,8 +8,10 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Community Gardens</h3>
           <p>
-          1423 Red Ventures Dr<br />
-          Fort Mill, SC 29707<br />
+            1423 Red Ventures Dr
+            <br />
+            Fort Mill, SC 29707
+            <br />
             info@communitygardens.org
           </p>
         </div>

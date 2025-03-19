@@ -94,7 +94,7 @@ nav li a:hover {
     top: 60px;
     left: 0;
     right: 0;
-    background-color:var(--color-olive);
+    background-color: var(--color-olive);
     padding: 1rem;
     box-shadow: 0 4px 8px rgba(179, 165, 137, 0.2);
   }
@@ -104,7 +104,7 @@ nav li a:hover {
   }
 
   .menu:hover span {
-    background-color: #F2F2F2;
+    background-color: #f2f2f2;
   }
 
   /* Hamburger menu animation */
