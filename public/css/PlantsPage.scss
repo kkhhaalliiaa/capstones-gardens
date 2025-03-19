@@ -41,8 +41,8 @@
   }
 
   .plants-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex; // Changed from grid to flex
+    flex-wrap: wrap; // Allow wrapping of items
     gap: 2rem;
     padding: 1rem;
     justify-content: center;
