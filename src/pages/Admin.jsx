@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Trash2, CheckCircle, User, MessageSquare } from "lucide-react";
+import { Trash2, User, MessageSquare } from "lucide-react";
 import axios from "axios";
 import "../../public/css/Admin.css";
 
@@ -9,12 +9,13 @@ const Admin = () => {
   const [users, setUsers] = useState([]);
   const [comments, setComments] = useState([]);
   const [activeTab, setActiveTab] = useState("comments");
+  const [loggedInUsers, setLoggedInUsers] = useState([]);
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get(`${API_BASE_URL}/users`);
-      console.log("Fetched Users:", res.data);
-      setUsers(Array.isArray(res.data) ? res.data : []);
+      const res = await axios.get(`${API_BASE_URL}/users`); // Ensure this endpoint matches the backend
+      console.log("Fetched Users:", res.data); // Debugging log
+      setUsers(Array.isArray(res.data) ? res.data : []); // Ensure data is an array
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -42,12 +43,13 @@ const Admin = () => {
   };
 
   useEffect(() => {
-    console.log(
-      "Current User Role ID:",
-      JSON.parse(localStorage.getItem("user"))?.role_id
-    ); // Debugging log
     fetchUsers();
     fetchComments();
+
+    // Fetch logged-in users from localStorage
+    const storedLoggedInUsers =
+      JSON.parse(localStorage.getItem("loggedInUsers")) || [];
+    setLoggedInUsers(storedLoggedInUsers);
   }, []);
 
   return (
@@ -125,12 +127,11 @@ const Admin = () => {
                       <th>Role</th>
                       <th>Join Date</th>
                       <th>Status</th>
-                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {users.map((user) => (
-                      <tr key={user.user_id}>
+                      <tr key={user.id}>
                         <td className="admin-user-name-cell">
                           {user.first_name} {user.last_name}
                         </td>
@@ -158,21 +159,39 @@ const Admin = () => {
                             {user.status}
                           </span>
                         </td>
-                        <td>
-                          <button
-                            onClick={() => handleDeleteUser(user.user_id)}
-                            className="admin-delete-button"
-                            aria-label="Delete user"
-                          >
-                            <Trash2 className="admin-icon" />
-                          </button>
-                        </td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               ) : (
                 <p className="admin-empty-message">No users to display</p>
+              )}
+            </div>
+
+            {/* Logged-In Users Section */}
+            <h2 className="admin-section-title">Logged-In Users</h2>
+            <div className="admin-section-content">
+              {loggedInUsers.length > 0 ? (
+                <table className="admin-users-table">
+                  <thead>
+                    <tr>
+                      <th>Username</th>
+                      <th>Login Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {loggedInUsers.map((user, index) => (
+                      <tr key={index}>
+                        <td>{user.username}</td>
+                        <td>{new Date(user.loginTime).toLocaleString()}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <p className="admin-empty-message">
+                  No users have logged in yet.
+                </p>
               )}
             </div>
           </div>
