@@ -19,7 +19,10 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3002/login", { email, password });
+      const response = await axios.post("http://localhost:3002/login", {
+        email,
+        password,
+      });
 
       if (response.status === 200) {
         const { token, user } = response.data;
@@ -33,6 +36,7 @@ const Login = () => {
             username: user.username,
             first_name: user.first_name,
             last_name: user.last_name,
+            role_id: user.role_id,
           })
         );
 
@@ -77,7 +81,9 @@ const Login = () => {
             <div className="small-cont">
               <input type="checkbox" id="remember" name="remember" />
               <label htmlFor="remember">Remember Me</label>
-              <Link to="/forgot-password" className="forgot-password">Forgot Password?</Link>
+              <Link to="/forgot-password" className="forgot-password">
+                Forgot Password?
+              </Link>
             </div>
           </div>
           <button type="submit">Sign In</button>
