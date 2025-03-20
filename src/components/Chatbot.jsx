@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { fetchChatbotResponse } from "../api/chatbotService";
+import ReactMarkdown from "react-markdown";
 import { X, Flower } from 'lucide-react';
 import "../../public/css/Chatbot.css"; 
 
@@ -22,9 +23,16 @@ const Chatbot = () => {
         setInput("");
         setIsLoading(true);
 
-        const botResponse = await fetchChatbotResponse(input);
+        const botResponse = await fetchChatbotResponse(input, messages);
         setIsLoading(false);
         setMessages((prevMessages) => [...prevMessages, { role: "assistant", content: botResponse }]);
+    };
+
+    const handleKeyPress = (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Prevents new line in input field
+            sendMessage();
+        }
     };
 
     return (
@@ -42,7 +50,7 @@ const Chatbot = () => {
                     <div className="chatbox-messages">
                         {messages.map((msg, index) => (
                             <div key={index} className={`message ${msg.role}`}>
-                                {msg.content}
+                                <ReactMarkdown>{msg.content}</ReactMarkdown>
                             </div>
                         ))}
                         {isLoading && (
@@ -56,6 +64,7 @@ const Chatbot = () => {
                             type="text"
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
+                            onKeyDown={handleKeyPress}
                             placeholder="Ask about soil, plants..."
                         />
                         <button onClick={sendMessage}>Send</button>

@@ -75,7 +75,7 @@
 .message {
     padding: 8px 12px;
     border-radius: 8px;
-    max-width: 75%;
+    max-width: 80%;
     word-wrap: break-word;
 }
 
@@ -83,13 +83,34 @@
     background-color: #b3a589;
     color: white;
     align-self: flex-end;
+    margin-right: 1px;
 }
 
+/* Improves message readability */
 .message.assistant {
     background-color: #d9e4c4;
     color: black;
     align-self: flex-start;
+    padding: 10px;
+    line-height: 1.6; /* Adds spacing between lines */
 }
+
+/* Makes lists more readable */
+.message.assistant ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.message.assistant li {
+    margin-bottom: 5px;
+}
+
+/* Ensures bold text is properly visible */
+.message.assistant strong {
+    font-weight: bold;
+    color: #5a7344;
+}
+
 
 /* Typing Animation */
 .message.typing span {
@@ -145,7 +166,7 @@
     background-color: #6f7d58;
 }
 
-/* 📱 Mobile Responsiveness */
+/* Mobile Responsiveness */
 @media (min-width: 768px) {
     .chatbox {
         width: 400px;
@@ -164,7 +185,7 @@
     }
 
     .message {
-        font-size: 0.9rem; /* 🔍 Adjust text for smaller screens */
+        font-size: 1.0rem;
     }
 
     .chatbox-input input {
@@ -177,7 +198,7 @@
     }
 
     .chatbot-icon {
-        width: 60px; /* 📏 Slightly smaller button */
+        width: 60px;
         height: 60px;
         font-size: 1.8rem;
     }
@@ -185,10 +206,14 @@
 
 @media (max-width: 480px) {
     .chatbox {
-        width: 60%;
-        height: 55vh; /* 🛠️ Adjust height for very small screens */
+        width: 250px;
+        height: 65vh;
         bottom: 5px;
         right: 5px;
+    }
+
+    .message {
+        font-size: 0.9em;
     }
 
     .chatbox-input input {
@@ -200,7 +225,7 @@
     }
 
     .chatbot-icon {
-        width: 45px; /* 📏 Even smaller for tiny screens */
+        width: 45px; 
         height: 45px;
         font-size: 1.6rem;
     }
