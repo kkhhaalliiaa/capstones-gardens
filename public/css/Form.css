@@ -1,161 +1,174 @@
 .contact-form {
-    padding: 3rem 0;
-    margin: 3rem 0;
+  padding: 3rem 0;
+  margin: 3rem 0;
 }
 
 .form-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form h2 {
-    font-size: 2.2rem;
-    color: #333;
-    margin-bottom: 1rem;
-    text-align: center;
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .contact-form p {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    font-size: 1.1rem;
-    color: #333;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  color: #333;
 }
 
 .contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .contact-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #333;
-    font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #333;
+  font-size: 1rem;
 }
 
 .contact-form input,
 .contact-form textarea {
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
 }
 
 .contact-form textarea {
-    min-height: 150px;
-    resize: vertical;
+  min-height: 150px;
+  resize: vertical;
 }
 
 .contact-form button {
-    border-radius: 20px;
-    text-decoration: none;
-    border: 1px solid #8B9A72;
-    background-color: #8B9A72;
-    color: #FFFFFF;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 12px 45px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: transform 80ms ease-in;
-    align-self: center;
-    cursor: pointer;
-    margin-top: 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  border: 1px solid #8b9a72;
+  background-color: #8b9a72;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  align-self: center;
+  cursor: pointer;
+  margin-top: 1rem;
 }
 
 .contact-form button:hover {
-    background-color: #7d8a66;
+  background-color: #7d8a66;
 }
 
 .contact-form button:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .success-message {
-    background-color: #B2BEA2;
-    color: #333;
-    padding: 1rem;
-    border-radius: 4px;
-    text-align: center;
-    margin: 1rem 0;
+  background-color: #b2bea2;
+  color: #333;
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  margin: 1rem 0;
 }
+
+/* Responsive design */
 
 @media (max-width: 1024px) {
-    .form-content {
-        max-width: 700px;
-        padding: 1.5rem;
-    }
-    
-    .contact-form h2 {
-        font-size: 2rem;
-    }
-    
-    .contact-form p {
-        font-size: 1rem;
-    }
+  .form-content {
+    max-width: 700px;
+    padding: 1.5rem;
+  }
+
+  .contact-form h2 {
+    font-size: 2rem;
+  }
+
+  .contact-form p {
+    font-size: 1rem;
+  }
 }
 
+/* Medium Tablets */
+@media (max-width: 900px) {
+}
+
+/* Small Tablets and Large Phones */
 @media (max-width: 768px) {
-    .form-content {
-        max-width: 600px;
-        padding: 1.2rem;
-    }
-    
-    .contact-form h2 {
-        font-size: 1.8rem;
-    }
-    
-    .contact-form p {
-        font-size: 1rem;
-        max-width: 90%;
-    }
-    
-    .contact-form button {
-        padding: 10px 40px;
-        font-size: 12px;
-    }
+  .form-content {
+    max-width: 600px;
+    padding: 1.2rem;
+  }
+
+  .contact-form h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-form p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .contact-form button {
+    padding: 10px 40px;
+    font-size: 12px;
+  }
 }
 
+/* Mobile Phones */
+@media (max-width: 600px) {
+}
+
+/* Small Mobile Phones */
 @media (max-width: 480px) {
-    .form-content {
-        padding: 1rem;
-    }
-    
-    .contact-form h2 {
-        font-size: 1.6rem;
-    }
-    
-    .contact-form p {
-        font-size: 0.95rem;
-    }
-    
-    .contact-form button {
-        padding: 8px 35px;
-        font-size: 11px;
-    }
+  .form-content {
+    padding: 1rem;
+  }
+
+  .contact-form h2 {
+    font-size: 1.6rem;
+  }
+
+  .contact-form p {
+    font-size: 0.95rem;
+  }
+
+  .contact-form button {
+    padding: 8px 35px;
+    font-size: 11px;
+  }
 }
 
-@media (max-width: 360px) {
-    .contact-form h2 {
-        font-size: 1.4rem;
-    }
-    
-    .contact-form p {
-        font-size: 0.9rem;
-    }
-    
-    .contact-form button {
-        padding: 7px 25px;
-        font-size: 10px;
-    }
+/* Super Small Mobile Phones */
+@media (max-width: 350px) {
+  .contact-form h2 {
+    font-size: 1.4rem;
+  }
+
+  .contact-form p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form button {
+    padding: 7px 25px;
+    font-size: 10px;
+  }
 }

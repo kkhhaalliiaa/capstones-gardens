@@ -1,9 +1,14 @@
-// User.scss
+// Color variables based on original scheme
+$color-tan: var(--color-white);
+$color-olive: var(--color-olive);
+$color-sage: var(--color-sage);
+$text-dark: #333;
+$text-medium: #555;
 
-:root {
-  --color-tan: #b3a589;
-  --color-olive: #8b9a72;
-  --color-sage: #b2bea2;
+.user-container {
+  max-width: 1135px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 .user {
@@ -11,17 +16,15 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background-color: var(--color-tan);
+  background-color: $color-tan;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 2rem auto;
-  max-width: 1135px;
+  margin-bottom: 2rem;
 
   .user-profile-pic {
-    width: 200px;
+    width: 250px;
     height: 200px;
     border-radius: 50%;
-    background-color: var(--color-olive);
+    background-color: $color-olive;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,53 +35,136 @@
 
   .user-info {
     text-align: center;
+    width: 100%;
 
     h2 {
-      font-size: 2rem;
-      color: var(--color-olive);
+      font-size: 2.2rem;
+      color: $color-olive;
       margin-bottom: 1rem;
+      font-weight: 600;
     }
 
     p {
       font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 0.5rem;
+      color: $text-medium;
+      margin-bottom: 0.7rem;
     }
 
     .logout-btn {
-      background-color: var(--color-olive);
+      background-color: $color-olive;
       color: white;
       border: none;
-      padding: 0.5rem 1rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 1rem;
-      margin-top: 1rem;
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
 
       &:hover {
-        background-color: (--color-olive);
+        background-color: red; // Fixed invalid syntax
+        transform: translateY(-2px);
       }
     }
   }
 }
 
-.user-favorites {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+.saved-searches {
+  background-color: $color-tan;
+  border-radius: 10px;
   padding: 2rem;
-  max-width: 1200px;
-  margin: 2rem auto;
 
-  .favorite {
-    background-color: var(--color-sage);
-    border-radius: 10px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  h3 {
+    font-size: 1.8rem;
+    color: $color-olive;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: $color-sage;
+      border-radius: 5px; // Added missing value
+    }
+  }
+
+  .searches-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.2rem;
+
+    .search-item {
+      background-color: $color-sage;
+      color: white;
+      padding: 1.2rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+      font-weight: 500;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .delete-search-btn {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        margin-left: 10px;
+
+        &:hover {
+          color: white;
+          background-color: rgba(0, 0, 0, 0.1);
+          transform: scale(1.1);
+        }
+
+        &:active {
+          transform: scale(0.95); // Fixed duplicate selector
+        }
+      }
+    }
+  }
+
+  .no-searches {
+    text-align: center;
+    color: $text-medium;
+    font-style: italic;
+    font-size: 1.1rem;
+    padding: 2rem 0;
+  }
+}
+
+// Media query for responsive design
+@media (min-width: 768px) {
+  .user {
+    flex-direction: row;
+    text-align: left;
+
+    .user-profile-pic {
+      margin-right: 2.5rem;
+      margin-bottom: 0;
+    }
+
+    .user-info {
+      text-align: left;
+    }
   }
 }

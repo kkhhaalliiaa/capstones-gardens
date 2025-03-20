@@ -117,9 +117,9 @@ const Home = () => {
           <h2>Ready to Get Your Hands Dirty?</h2>
           <p>
             Join our next workshop to learn practical skills for starting your
-            own garden, no matter how small your space. 
-            <br />From window sills to
-            backyards, everyone can grow something!
+            own garden, no matter how small your space.
+            <br />
+            From window sills to backyards, everyone can grow something!
           </p>
           <a href="#" className="btn">
             Register for a Workshop
@@ -127,6 +127,12 @@ const Home = () => {
         </div>
       </section>
 
+
+      <div className="section-divider-container">
+        <span className="divider-text">Grow With Us</span>
+      </div>
+
+      {/* Contact Form Section */}
       <ContactForm />
     </div>
   );

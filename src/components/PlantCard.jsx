@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import "../../public/css/plants.scss";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import DOMPurify from "dompurify";
+import "../../public/css/PlantCard.scss";
+
 const PlantCard = ({ plant }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -11,21 +15,35 @@ const PlantCard = ({ plant }) => {
     setIsModalOpen(false);
   };
 
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+  };
+
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("modal-overlay")) {
+      closeModal();
+    }
+  };
+
   return (
     <>
       <div className="plant-card" onClick={openModal}>
         {plant.images && plant.images.thumb && (
           <img
-            src={plant.images.thumb}
-            alt={plant.name}
+            src={DOMPurify.sanitize(plant.images.thumb)} // Sanitize image URL
+            alt={DOMPurify.sanitize(plant.name)} // Sanitize alt text
             className="plant-image"
           />
         )}
-        <div className="plant-name">{plant.name}</div>
+        <div className="plant-name">{DOMPurify.sanitize(plant.name)}</div>{" "}
+        {/* Sanitize plant name */}
       </div>
 
       {isModalOpen && (
-        <div className={`modal-overlay ${isModalOpen ? "active" : ""}`}>
+        <div
+          className={`modal-overlay ${isModalOpen ? "active" : ""}`}
+          onClick={handleOverlayClick} // Close modal when clicking outside
+        >
           <div className="modal-content">
             <span className="close-modal" onClick={closeModal}>
               &times;
@@ -64,7 +82,9 @@ const PlantCard = ({ plant }) => {
                 ))}
               </div>
             )}
-            <span className="favorite-icon">❤️</span>
+            <span className="favorite-icon" onClick={toggleFavorite}>
+              {isFavorite ? <FaHeart /> : <FaRegHeart />}
+            </span>
           </div>
         </div>
       )}

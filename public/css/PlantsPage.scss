@@ -1,0 +1,102 @@
+.plants {
+  padding: 2rem;
+  background-color: #f9f7f2;
+  min-height: 100vh;
+
+  h1 {
+    color: var(--color-brown);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .search-and-help {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  .help-button {
+    background-color: var(--color-olive);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--color-tan);
+    }
+  }
+
+  .plants-container {
+    display: flex; // Changed from grid to flex
+    flex-wrap: wrap; // Allow wrapping of items
+    gap: 2rem;
+    padding: 1rem;
+    justify-content: center;
+  }
+
+  .help-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .help-modal {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    h2 {
+      color: var(--color-olive);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      color: #333;
+    }
+
+    ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+
+      li {
+        margin-bottom: 0.5rem;
+        color: #555;
+      }
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-olive);
+    }
+  }
+}

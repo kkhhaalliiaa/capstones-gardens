@@ -1,374 +1,403 @@
 :root {
-    --color-tan: #b3a589;
-    --color-olive: #8b9a72;
-    --color-sage: #b2bea2;
-  }
-  
-  body {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f7f2;
-    color: #333;
-    line-height: 1.6;
-  }
+  --color-tan: #b3a589;
+  --color-olive: #8b9a72;
+  --color-sage: #b2bea2;
+}
 
-   .home {
-    max-width: 100vw;
-  }
-  
-  .hero {
-    background-color: var(--color-sage);
-    text-align: center;
-    padding: 4rem 2rem;
-  }
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f7f2;
+  color: #333;
+  line-height: 1.6;
+}
+
+.home {
+  max-width: 100vw;
+}
+
+.hero {
+  background-color: var(--color-sage);
+  text-align: center;
+  padding: 4rem 2rem;
+}
 
 .mission {
-    background-color: var(--color-tan);
-    text-align: center;
-    padding: 5rem 2rem;
+  background-color: var(--color-tan);
+  text-align: center;
+  padding: 5rem 2rem;
 }
 
-  .hero-content {
-    width: 100%;
-    margin: 0 auto;
+.hero-content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: 333;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--color-olive);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: #7a8864;
+  transform: translateY(-2px);
+}
+
+.features {
+  min-height: 600px;
+  padding: 3rem 2rem;
+  background-color: white;
+}
+
+.section-title {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+.home-card {
+  background-color: #f9f7f2;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.homecard-image img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.homecard-content {
+  padding: 1.5rem;
+}
+.homecard {
+  background-color: #f9f7f2;
+  border-radius: 8px;
+}
+
+a {
+  color: #8b9a72;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #8b9a72;
+}
+
+.about {
+  min-height: 500px;
+  padding: 3rem 2rem;
+  background-color: var(--color-tan);
+  color: #333;
+}
+
+.about-text {
+  font-size: 1.3rem;
+}
+
+.about-text p {
+  padding-bottom: 1.5rem;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 3%;
+}
+
+.cta {
+  min-height: 420px;
+  background-color: #f9f7f2;
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.cta h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-olive);
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta .btn {
+  background-color: var(--color-tan);
+  color: #333;
+  margin-top: 1rem;
+}
+
+.cta .btn:hover {
+  background-color: #a09176;
+}
+
+.section-divider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  width: 70%;
+  position: relative;
+}
+
+.section-divider-container::before,
+.section-divider-container::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background-color: #75a33d;
+  margin: 0 10px;
+}
+
+.divider-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #333;
+}
+
+@media (max-width: 1024px) {
+  .hero,
+  .mission {
+    padding: 5rem 0;
   }
-  
+
+  .feature-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .feature-cards > *:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 35rem;
+  }
+
+  .about-content {
+    gap: 2.5rem;
+  }
+}
+
+/* Medium Tablets */
+@media (max-width: 900px) {
+  .hero-content,
+  .about-content,
+  .feature-cards {
+    padding: 0 25px;
+  }
+
+  .feature-cards > *:last-child:nth-child(odd) {
+    max-width: 28rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-image {
+    grid-row: 1;
+    max-height: 400px;
+  }
+
+  .about-text {
+    grid-row: 2;
+  }
+}
+
+/* Small Tablets and Large Phones */
+@media (max-width: 768px) {
+  .hero,
+  .mission {
+    padding: 4rem 0;
+  }
+
+  .features,
+  .about,
+  .cta {
+    padding: 4rem 0;
+  }
+
   .hero-content h1 {
-    font-size: 2.5rem;
-    color: 333;
     margin-bottom: 1rem;
   }
-  
+
   .hero-content p {
-    font-size: 1.2rem;
     margin-bottom: 2rem;
   }
-  
-  .btn {
-    display: inline-block;
-    background-color: var(--color-olive);
-    color: white;
-    padding: 0.8rem 1.8rem;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: all 0.3s;
-  }
-  
-  .btn:hover {
-    background-color: #7a8864;
-    transform: translateY(-2px);
-  }
-  
-  .features {
-    min-height: 600px;
-    padding: 3rem 2rem;
-    background-color: white;
-  }
-  
-  .section-title {
-    text-align: center;
-    color: var(--color-olive);
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  
+
   .feature-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width:100vw;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
   }
-  
-  .home-card {
-    background-color: #f9f7f2;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  .feature-cards > *:last-child:nth-child(odd) {
+    max-width: 25rem;
   }
-  
   .homecard-image img {
-    width: 100%;
-    height: 30vh;
-    object-fit: cover; 
-    object-position: top;
-}
+    height: 200px;
+  }
+
+  .section-title {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title:after {
+    width: 50px;
+    height: 2px;
+  }
 
   .homecard-content {
     padding: 1.5rem;
   }
-  .homecard {
-    background-color: #f9f7f2;
-    border-radius: 8px;
+
+  .btn {
+    padding: 0.8rem 1.6rem;
   }
-  
-  a{
-    color: #8B9A72;
-    text-decoration: none;
-    margin-bottom: 10px;
-  }
- 
-    a:hover {
-      text-decoration: underline;
-      color:#8B9A72
+}
+
+/* Mobile Phones */
+@media (max-width: 600px) {
+  .hero,
+  .mission {
+    padding: 3.5rem 0;
   }
 
-  .about {
-    min-height: 500px;
-    padding: 3rem 2rem;
-    background-color: var(--color-tan);
-    color: #333;
-  }
-  
-  .about-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 3%;
-  }
-  
+  .features,
+  .about,
   .cta {
-    min-height: 420px;
-    background-color: #f9f7f2;
-    padding: 4rem 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .cta h2 {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    color: var(--color-sage);
-  }
-  
-  .cta .btn {
-    background-color: var(--color-tan);
-    color: #333;
-    margin-top: 1rem;
-  }
-  
-  .cta .btn:hover {
-    background-color: #a09176;
-  }
-  
-
-  /* Responsive Design */
-  /* @media (max-width: 768px) {
-    .hero, .mission, .features, .about, .cta {
-      padding: 3rem 1rem;
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-    }
-    
-    .hero p {
-      font-size: 1rem;
-    }
-
-    .btn {
-      padding: 0.6rem 1.4rem;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-    }
+    padding: 3.5rem 0;
   }
 
-  @media (max-width: 480px) {
-    .hero h1 {
-      font-size: 1.8rem;
-    }
-    
-    .hero p {
-      font-size: 0.9rem;
-    }
-    
-    .btn {
-      padding: 0.5rem 1.2rem;
-    }
-  }  */
-
-  @media (max-width: 1024px) {
-    .hero, .mission {
-      padding: 5rem 0;
-    }
-    
-    .feature-cards {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-    
-    .about-content {
-      gap: 2.5rem;
-    }
-  }
-  
-  /* Medium Tablets */
-  @media (max-width: 900px) {
-    .hero-content, .about-content, .feature-cards {
-      padding: 0 25px;
-    }
-    
-    .about-content {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-    
-    .about-image {
-      grid-row: 1;
-      max-height: 400px;
-    }
-    
-    .about-text {
-      grid-row: 2;
-    }
-  }
-  
-  /* Small Tablets and Large Phones */
-  @media (max-width: 768px) {
-    .hero, .mission {
-      padding: 4rem 0;
-    }
-    
-    .features, .about, .cta {
-      padding: 4rem 0;
-    }
-    
-    .hero-content h1 {
-      margin-bottom: 1rem;
-    }
-    
-    .hero-content p {
-      margin-bottom: 2rem;
-    }
-    
-    .feature-cards {
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    
-    .homecard-image img {
-      height: 200px;
-    }
-    
-    .section-title {
-      margin-bottom: 2.5rem;
-    }
-    
-    .section-title:after {
-      width: 50px;
-      height: 2px;
-    }
-    
-    .homecard-content {
-      padding: 1.5rem;
-    }
-    
-    .btn {
-      padding: 0.8rem 1.6rem;
-    }
-  }
-  
-  /* Mobile Phones */
-  @media (max-width: 600px) {
-    .hero, .mission {
-      padding: 3.5rem 0;
-    }
-    
-    .features, .about, .cta {
-      padding: 3.5rem 0;
-    }
-    
-    .feature-cards {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    
-    .homecard-image img {
-      height: 220px;
-    }
-    
-    .container, .hero-content, .feature-cards, 
-    .about-content, .cta-content {
-      padding: 0 20px;
-    }
-    
-    .section-title {
-      margin-bottom: 2rem;
-    }
-  }
-  
-  /* Small Mobile Phones */
-  @media (max-width: 480px) {
-    .hero, .mission {
-      padding: 3rem 0;
-    }
-    
-    .features, .about, .cta {
-      padding: 3rem 0;
-    }
-    
-    .hero-content h1 {
-      margin-bottom: 0.8rem;
-    }
-    
-    .hero-content p {
-      margin-bottom: 1.8rem;
-    }
-    
-    .btn {
-      padding: 0.7rem 1.4rem;
-      width: 80%;
-      max-width: 280px;
-    }
-    
-    .homecard-content {
-      padding: 1.2rem;
-    }
-    
-    .homecard-image img {
-      height: 180px;
-    }
-    
-    .about-image {
-      max-height: 300px;
-    }
-  }
-  
-  /* Super Small Mobile Phones */
-  @media (max-width: 350px) {
-    .hero-content h1 {
-      font-size: 1.8rem;
-    }
-    
-    .hero-content p {
-      font-size: 0.95rem;
-    }
-    
-    .btn {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
-    }
-    
-    .homecard-image img {
-      height: 160px;
-    }
+  .feature-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
+  .feature-cards > *:last-child:nth-child(odd) {
+    max-width: 40rem;
+  }
 
-  
+  .homecard-image img {
+    height: 220px;
+  }
+
+  .container,
+  .hero-content,
+  .feature-cards,
+  .about-content,
+  .cta-content {
+    padding: 0 20px;
+  }
+
+  .section-title {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Small Mobile Phones */
+@media (max-width: 480px) {
+  .hero,
+  .mission {
+    padding: 3rem 0;
+  }
+
+  .features,
+  .about,
+  .cta {
+    padding: 3rem 0;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 0.8rem;
+  }
+
+  .hero-content p {
+    margin-bottom: 1.8rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1.4rem;
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .homecard-content {
+    padding: 1.2rem;
+  }
+
+  .homecard-image img {
+    height: 180px;
+  }
+
+  .about-image {
+    max-height: 300px;
+  }
+}
+
+/* Super Small Mobile Phones */
+@media (max-width: 350px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .homecard-image img {
+    height: 160px;
+  }
+}

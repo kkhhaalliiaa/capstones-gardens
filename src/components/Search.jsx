@@ -1,24 +1,34 @@
 import React, { useState } from "react";
+import "../../public/css/Search.scss";
 
 const Search = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSearch(query);
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearch = () => {
+    onSearch(searchQuery);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      onSearch(searchQuery); // Trigger search on Enter key press
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="search-bar">
       <input
         type="text"
-        name="q"
+        value={searchQuery}
+        onChange={handleInputChange}
+        onKeyPress={handleKeyPress} 
         placeholder="Search for plants..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
       />
-      <button type="submit">Search</button>
-    </form>
+      <button onClick={handleSearch}>Search</button>
+    </div>
   );
 };
 

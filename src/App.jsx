@@ -10,6 +10,8 @@ import Signup from "./pages/Signup.jsx";
 import Plants from "./pages/Plants.jsx";
 import User from "./pages/User.jsx";
 import Admin from "./pages/Admin.jsx";
+import Chatbot from "./components/Chatbot.jsx";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 
 function App() {
@@ -25,8 +27,16 @@ function App() {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/plants" element={<Plants />}></Route>
           <Route path="/user" element={<User />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <Admin />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
+        <Chatbot />
         <Footer />
       </Router>
     </>

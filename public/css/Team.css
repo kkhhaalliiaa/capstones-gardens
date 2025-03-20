@@ -5,12 +5,6 @@
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-body {
-  color: #333;
-  line-height: 1.6;
-  background-color: #f2f2f2;
-}
-
 .container {
   margin: 0 auto;
   padding: 0 2rem;
@@ -72,6 +66,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  aspect-ratio: 1/1;
 }
 
 .leader-1 {
@@ -189,6 +184,8 @@ body {
   border-color: #ffffff;
 }
 
+/* Responsive design */
+
 @media (max-width: 1024px) {
   .container {
     padding: 0 1.5rem;
@@ -218,11 +215,13 @@ body {
   .leader-title {
     font-size: 1rem;
   }
-  .values-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
 }
 
+/* Medium Tablets */
+@media (max-width: 900px) {
+}
+
+/* Small Tablets and Large Phones */
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
@@ -273,6 +272,11 @@ body {
   }
 }
 
+/* Mobile Phones */
+@media (max-width: 600px) {
+}
+
+/* Small Mobile Phones */
 @media (max-width: 480px) {
   .container {
     padding: 0 0.8rem;
@@ -318,7 +322,8 @@ body {
   }
 }
 
-@media (max-width: 360px) {
+/* Super Small Mobile Phones */
+@media (max-width: 350px) {
   .container {
     padding: 0 0.5rem;
   }
