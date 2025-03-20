@@ -10,9 +10,39 @@ const Login = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate(); // For redirecting after login
 
+  const validateForm = () => {
+    let valid = true;
+    let errors = "";
+
+    if (!email.trim()) {
+      errors = "Email is required.";
+      valid = false;
+    } else if (!/^[\w.-]+@[\w.-]+\.\w+$/.test(email)) {
+      errors = "Enter a valid email address.";
+      valid = false;
+    }
+
+    if (!password.trim()) {
+      errors = "Password is required.";
+      valid = false;
+    } else if (password.length < 8) {
+      errors = "Password must be at least 8 characters long.";
+      valid = false;
+    } else if (!/(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/.test(password)) {
+      errors = "Password must contain at least one uppercase letter, one number, and one special character.";
+      valid = false;
+    }
+
+    setError(errors);
+    return valid;
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(""); // Clear previous errors
+
+    if (!validateForm()) return;
 
     // Sanitize inputs
     const sanitizedEmail = DOMPurify.sanitize(email);
@@ -67,7 +97,7 @@ const Login = () => {
       <div className="login-container">
         <h1>Welcome Back</h1>
         {error && <p className="error-message">{error}</p>}
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           <div className="form-group">
             <label htmlFor="email">Email:</label>
             <input
