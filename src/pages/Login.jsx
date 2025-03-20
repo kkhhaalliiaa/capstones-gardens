@@ -13,38 +13,35 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(""); // Clear previous errors
-
+  
     // Sanitize inputs
     const sanitizedEmail = DOMPurify.sanitize(email);
     const sanitizedPassword = DOMPurify.sanitize(password);
-
+  
     if (!sanitizedEmail || !sanitizedPassword) {
       setError("Please enter both email and password.");
       return;
     }
-
+  
     try {
       const response = await axios.post("http://localhost:3002/login", {
         email: sanitizedEmail,
         password: sanitizedPassword,
       });
-
+  
       if (response.status === 200) {
         const { token, user } = response.data;
-
+  
+        // Add the email to the user object
+        const userWithEmail = {
+          ...user,
+          email: sanitizedEmail, // Manually add the email
+        };
+  
         // Save token and user data to localStorage
         localStorage.setItem("token", token);
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            user_id: user.user_id,
-            username: user.username,
-            first_name: user.first_name,
-            last_name: user.last_name,
-            role_id: user.role_id,
-          })
-        );
-
+        localStorage.setItem("user", JSON.stringify(userWithEmail));
+  
         // Track logged-in users
         const loggedInUsers =
           JSON.parse(localStorage.getItem("loggedInUsers")) || [];
@@ -54,7 +51,7 @@ const Login = () => {
           loginTime: new Date().toISOString(),
         });
         localStorage.setItem("loggedInUsers", JSON.stringify(loggedInUsers));
-
+  
         navigate("/"); // Redirect after login
       }
     } catch (err) {

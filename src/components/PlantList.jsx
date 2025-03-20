@@ -21,7 +21,6 @@ const PlantList = ({ query, filters }) => {
       .then((data) => {
         setData(data || { plants: [] });
         setLoading(false);
-        console.log(data);
       })
       .catch((error) => {
         console.error("Error fetching plant data:", error);

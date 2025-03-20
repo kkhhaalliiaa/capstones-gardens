@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Trash2, User, MessageSquare } from "lucide-react";
+import { Trash2, User, MessageSquare, LogOut } from "lucide-react"; // Import LogOut icon
 import axios from "axios";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 import "../../public/css/Admin.css";
 
 const API_BASE_URL = "http://localhost:3002";
@@ -10,11 +11,11 @@ const Admin = () => {
   const [comments, setComments] = useState([]);
   const [activeTab, setActiveTab] = useState("comments");
   const [loggedInUsers, setLoggedInUsers] = useState([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const fetchUsers = async () => {
     try {
       const res = await axios.get(`${API_BASE_URL}/users`); // Ensure this endpoint matches the backend
-      console.log("Fetched Users:", res.data); // Debugging log
       setUsers(Array.isArray(res.data) ? res.data : []); // Ensure data is an array
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -24,7 +25,6 @@ const Admin = () => {
   const fetchComments = async () => {
     try {
       const res = await axios.get(`${API_BASE_URL}/comments`);
-      console.log("Fetched Comments:", res.data);
       setComments(Array.isArray(res.data) ? res.data : []);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -40,6 +40,13 @@ const Admin = () => {
     } catch (error) {
       console.error("Error deleting comment:", error);
     }
+  };
+
+  // Logout function
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Remove token from localStorage
+    localStorage.removeItem("user"); // Remove user data from localStorage
+    navigate("/login"); // Redirect to the login page
   };
 
   useEffect(() => {
@@ -196,8 +203,12 @@ const Admin = () => {
             </div>
           </div>
         )}
+                    <button className="admin-logout-button" onClick={handleLogout}>
+        <LogOut className="admin-icon" /> Logout
+      </button>
       </div>
     </div>
+    
   );
 };
 

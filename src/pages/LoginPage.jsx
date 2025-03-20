@@ -1,45 +1,55 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// LoginPage.js
+import React, { useState, useContext } from "react";
+import axios from "axios";
+import DOMPurify from "dompurify";
+import { UserContext } from "../context/UserContext"; // Import UserContext
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const { login } = useContext(UserContext); // Access the login function from UserContext
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(""); // Clear previous errors
+
+    // Sanitize inputs
+    const sanitizedEmail = DOMPurify.sanitize(email);
+    const sanitizedPassword = DOMPurify.sanitize(password);
+
+    if (!sanitizedEmail || !sanitizedPassword) {
+      setError("Please enter both email and password.");
+      return;
+    }
 
     try {
-      const response = await fetch("http://localhost:3002/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+      const response = await axios.post("http://localhost:3002/login", {
+        email: sanitizedEmail,
+        password: sanitizedPassword,
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        // Store user data in local storage
-        localStorage.setItem("user", JSON.stringify(data.user));
-        localStorage.setItem("token", data.token);
-
-        // Redirect to the home page or admin page based on role
-        if (data.user.role_id === 1) {
-          navigate("/admin");
-        } else {
-          navigate("/");
+      if (response.status === 200) {
+        const { token, user } = response?.data || {};
+        if (!token || !user) {
+          throw new Error("Invalid response from server.");
         }
-      } else {
-        alert(data.message);
+
+        // Call the login function from UserContext
+        login(user, token);
+
+        // Redirect to home page after login
+        window.location.href = "/"; // Optional: Reload the whole page
       }
     } catch (err) {
-      console.error("Login error:", err);
+      setError(err.response?.data?.message || "Login failed. Try again.");
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form onSubmit={handleSubmit}>
       <h1>Login</h1>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <input
         type="email"
         placeholder="Email"
