@@ -11,6 +11,11 @@ export default function Plants() {
 
   const handleSearch = (searchQuery) => {
     setQuery(searchQuery);
+
+    // Save the search query to localStorage
+    const savedSearches = JSON.parse(localStorage.getItem("savedSearches")) || [];
+    savedSearches.push(searchQuery); // Add the new search query
+    localStorage.setItem("savedSearches", JSON.stringify(savedSearches)); // Save to localStorage
   };
 
   const handleFilter = (filterCriteria) => {
