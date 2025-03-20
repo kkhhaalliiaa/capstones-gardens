@@ -47,7 +47,7 @@ const leadershipData = [
     imgSrc: "../../public/images/justin.jpg",
     name: "Justin McNeil",
     title: "Project Manager",
-    bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus ut quas necessitatibus quam dignissimos laboriosam modi, id numquam itaque ipsam illum sed, suscipit incidunt doloremque saepe cupiditate, excepturi commodi non.",
+    bio: "With a strong background in management and a passion for mentorship, Justin brings invaluable leadership to Community Gardens. Working closely with young adults in the software engineering field, he fosters innovation while advocating for the importance of growing your own plants. His dedication helps empower communities to cultivate sustainability and self-sufficiency.",
     linkedin: "https://www.linkedin.com/in/mcneiljustin/",
   },
 ];
