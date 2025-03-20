@@ -25,12 +25,6 @@ const Login = () => {
     if (!password.trim()) {
       errors = "Password is required.";
       valid = false;
-    } else if (password.length < 8) {
-      errors = "Password must be at least 8 characters long.";
-      valid = false;
-    } else if (!/(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/.test(password)) {
-      errors = "Password must contain at least one uppercase letter, one number, and one special character.";
-      valid = false;
     }
 
     setError(errors);
