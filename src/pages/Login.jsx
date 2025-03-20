@@ -54,7 +54,7 @@ const Login = () => {
     }
   
     try {
-      const response = await axios.post("http://localhost:3002/login", {
+      const response = await axios.post("https://capstones-gardens-1h6s.onrender.com/login", {
         email: sanitizedEmail,
         password: sanitizedPassword,
       });

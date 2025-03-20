@@ -96,7 +96,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3002/register",
+        "https://capstones-gardens-1h6s.onrender.com/register",
         userData
       );
 

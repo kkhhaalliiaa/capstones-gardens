@@ -55,7 +55,7 @@ const ContactForm = () => {
 
     try {
       // Send a POST request to the correct backend API
-      await axios.post("http://localhost:3002/comments", {
+      await axios.post("https://capstones-gardens-1h6s.onrender.com/comments", {
         name: sanitizedName,
         email: sanitizedEmail,
         message: sanitizedMessage,
