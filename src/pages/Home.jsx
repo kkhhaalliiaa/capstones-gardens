@@ -28,7 +28,7 @@ const Home = () => {
           <div className="home-card">
             <div className="homecard-image">
               <img
-                src="../../public/images/homegardens.jpeg"
+                src="../../images/homegardens.jpeg"
                 alt="Climate Impact"
               />
             </div>
@@ -47,7 +47,7 @@ const Home = () => {
 
           <div className="home-card">
             <div className="homecard-image">
-              <img src="../../public/images/farmers.jpeg" alt="Food Security" />
+              <img src="../../images/farmers.jpeg" alt="Food Security" />
             </div>
             <div className="homecard-content">
               <h3>Build Food Resilience</h3>
@@ -64,7 +64,7 @@ const Home = () => {
 
           <div className="home-card">
             <div className="homecard-image">
-              <img src="../../public/images/community.jpeg" alt="Community" />
+              <img src="../../images/community.jpeg" alt="Community" />
             </div>
             <div className="homecard-content">
               <h3>Strengthen Communities</h3>
@@ -106,7 +106,7 @@ const Home = () => {
             </p>
           </div>
           <div className="about-image">
-            <img src="../../public/images/mission.jpeg" alt="Community" />
+            <img src="../../images/mission.jpeg" alt="Community" />
           </div>
         </div>
       </section>

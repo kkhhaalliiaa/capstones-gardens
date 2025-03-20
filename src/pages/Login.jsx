@@ -135,7 +135,7 @@ const Login = () => {
         </form>
       </div>
       <div className="login-photo">
-        <img src="../../public/images/login.jpg" alt="Gardening" />
+        <img src="../../images/login.jpg" alt="Gardening" />
       </div>
     </div>
   );

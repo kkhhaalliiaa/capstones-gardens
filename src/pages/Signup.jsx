@@ -120,7 +120,7 @@ const Signup = () => {
   return (
     <div className="main-container">
       <div className="signup-photo">
-        <img src="../../public/images/signup.jpg" alt="Gardening" />
+        <img src="../../images/signup.jpg" alt="Gardening" />
       </div>
       <div className="signup-container">
         <h1>Get Started Now</h1>
