@@ -96,7 +96,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "https://capstones-gardens-1h6s.onrender.com/register",
+        ""https://ismael-capstones-gardens.vercel.app"-1h6s.onrender.com/register",
         userData
       );
 

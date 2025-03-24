@@ -1,4 +1,4 @@
-const API_URL = "https://capstones-gardens-1h6s.onrender.com/api/chatbot";
+const API_URL = ""https://ismael-capstones-gardens.vercel.app"-1h6s.onrender.com/api/chatbot";
 
 export const fetchChatbotResponse = async (message, chatHistory) => {
     try {

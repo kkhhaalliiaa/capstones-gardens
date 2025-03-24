@@ -6,9 +6,10 @@
 
 Community Gardens is a full-stack web application designed to assist users in growing their own plants and vegetables. The platform provides an AI-powered chatbot for gardening guidance, a plant search feature, user authentication, and an admin panel for managing users and comments.
 
-[View Demo](https://capstones-gardens.vercel.app/)
+[View Demo]("https://ismael-capstones-gardens.vercel.app".vercel.app/)
 
 ## Table of Contents
+
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation-instructions)
@@ -16,6 +17,7 @@ Community Gardens is a full-stack web application designed to assist users in gr
 - [Acknowledgements](#acknowledgements)
 
 ## Features
+
 - **AI-Powered Gardening Chatbot**:
   - Provides expert gardening advice based on user queries.
   - Remembers user-provided locations to recommend soil types and plants.
@@ -30,7 +32,6 @@ Community Gardens is a full-stack web application designed to assist users in gr
   - Admin users can manage users and comments.
 - **Responsive UI**:
   - The application is fully responsive and works seamlessly on mobile, tablet, and desktop devices.
-
 
 [Back to Top](#top)
 
@@ -50,19 +51,18 @@ Community Gardens is a full-stack web application designed to assist users in gr
 - ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
 - ![SASS](https://img.shields.io/badge/SASS-CC6699?style=flat&logo=sass&logoColor=white)
 - MySQL
-- Cypress 
+- Cypress
 - OpenAI
-  
+
 ### Meet the Team:
 
-| [<img src="https://avatars.githubusercontent.com/u/122962331?v=4" width="50">](https://github.com/IsmaelxMartinez) | [<img src="https://avatars.githubusercontent.com/u/173405626?v=4" width="50">](https://github.com/efr-en) | [<img src="https://avatars.githubusercontent.com/u/183950244?v=4" width="50">](https://github.com/kkhhaalliiaa) | [<img src="https://avatars.githubusercontent.com/u/184427314?v=4" width="50">](https://github.com/pcatalinahe) | [<img src="https://avatars.githubusercontent.com/u/140208650?v=4"  width="50">](https://github.com/DJCooper1104)
-|---|---|---|---|---|
-
+| [<img src="https://avatars.githubusercontent.com/u/122962331?v=4" width="50">](https://github.com/IsmaelxMartinez) | [<img src="https://avatars.githubusercontent.com/u/173405626?v=4" width="50">](https://github.com/efr-en) | [<img src="https://avatars.githubusercontent.com/u/183950244?v=4" width="50">](https://github.com/kkhhaalliiaa) | [<img src="https://avatars.githubusercontent.com/u/184427314?v=4" width="50">](https://github.com/pcatalinahe) | [<img src="https://avatars.githubusercontent.com/u/140208650?v=4"  width="50">](https://github.com/DJCooper1104) |
+| ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 
 ### Acknowledgements
+
 - OpenAI for AI chatbot integration
 - Permapeople API for plant data
 - Community support for sustainable gardening
-
 
 [Back to Top](#top)

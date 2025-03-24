@@ -12,7 +12,7 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 const PORT = process.env.PORT || 3002;
 
-app.use(cors({ origin: ["https://capstones-gardens.vercel.app", ] })); // Make sure this matches your frontend URL
+app.use(cors({ origin: ["https://ismael-capstones-gardens.vercel.app", ] })); // Make sure this matches your frontend URL
 app.use(helmet());
 app.use(express.json());
 

@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 import "../../public/css/Admin.css";
 
-const API_BASE_URL = "https://capstones-gardens-1h6s.onrender.com";
+const API_BASE_URL = ""https://ismael-capstones-gardens.vercel.app"-1h6s.onrender.com";
 
 const Admin = () => {
   const [users, setUsers] = useState([]);

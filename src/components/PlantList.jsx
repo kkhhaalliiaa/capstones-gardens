@@ -11,7 +11,9 @@ const PlantList = ({ query, filters }) => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://capstones-gardens-1h6s.onrender.com/api/listPlants?q=${query}`)
+    fetch(
+      `"https://ismael-capstones-gardens.vercel.app"-1h6s.onrender.com/api/listPlants?q=${query}`
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
