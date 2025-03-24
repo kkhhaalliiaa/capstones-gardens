@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import DOMPurify from "dompurify";
 import "../../public/css/PlantCard.scss";
@@ -16,8 +16,23 @@ const PlantCard = ({ plant }) => {
   };
 
   const toggleFavorite = () => {
+    const favoritedPlants =
+      JSON.parse(localStorage.getItem("favoritedPlants")) || [];
+    if (isFavorite) {
+      const updatedFavorites = favoritedPlants.filter((p) => p.id !== plant.id);
+      localStorage.setItem("favoritedPlants", JSON.stringify(updatedFavorites));
+    } else {
+      favoritedPlants.push(plant);
+      localStorage.setItem("favoritedPlants", JSON.stringify(favoritedPlants));
+    }
     setIsFavorite(!isFavorite);
   };
+
+  useEffect(() => {
+    const favoritedPlants =
+      JSON.parse(localStorage.getItem("favoritedPlants")) || [];
+    setIsFavorite(favoritedPlants.some((p) => p.id === plant.id));
+  }, [plant.id]);
 
   const handleOverlayClick = (e) => {
     if (e.target.classList.contains("modal-overlay")) {

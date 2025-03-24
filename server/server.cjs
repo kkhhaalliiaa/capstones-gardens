@@ -6,6 +6,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const plantRoute = require("./routes/plantRoute.cjs");
 const chatbotRoute = require("./routes/chatbotRoute.cjs");
+const customizeRoutes = require("./routes/customizeRoutes.cjs"); // Import customize routes
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
@@ -22,6 +23,7 @@ app.use("/comments", require("./routes/commentsRoute.cjs"));
 
 app.use("/api/listPlants", plantRoute);
 app.use("/api", chatbotRoute);
+app.use("/api", customizeRoutes); // Add customize routes
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

@@ -38,7 +38,9 @@ export default function Plants() {
 
   return (
     <div className="plants">
-      <h1>Plants</h1>
+
+     
+      <h1>Discover Our Plant Collection</h1> 
       <div className="search-and-help">
         <Search onSearch={handleSearch} />
         <button className="help-button" onClick={openHelpModal}>
