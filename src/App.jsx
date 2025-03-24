@@ -12,7 +12,10 @@ import User from "./pages/User.jsx";
 import Admin from "./pages/Admin.jsx";
 import Chatbot from "./components/Chatbot.jsx";
 import ProtectedRoute from "./components/ProtectedRoute";
-
+import ForbiddenPage from "./pages/403";
+import NotFoundPage from "./pages/404";
+import CustomizePage from "./pages/CustomizePage";
+import UserProtectedRoute from "./routes/UserProtectedRoute"; // Ensure correct import
 
 function App() {
   return (
@@ -35,6 +38,9 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/customize" element={<CustomizePage />} />
+          <Route path="/403" element={<ForbiddenPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Chatbot />
         <Footer />
