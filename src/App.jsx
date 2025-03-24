@@ -38,14 +38,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
-            path="/customize"
-            element={
-              <UserProtectedRoute>
-                <CustomizePage />
-              </UserProtectedRoute>
-            }
-          />
+          <Route path="/customize" element={<CustomizePage />} />
           <Route path="/403" element={<ForbiddenPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

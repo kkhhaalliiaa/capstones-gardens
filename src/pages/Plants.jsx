@@ -13,7 +13,8 @@ export default function Plants() {
     setQuery(searchQuery);
 
     // Save the search query to localStorage
-    const savedSearches = JSON.parse(localStorage.getItem("savedSearches")) || [];
+    const savedSearches =
+      JSON.parse(localStorage.getItem("savedSearches")) || [];
     savedSearches.push(searchQuery); // Add the new search query
     localStorage.setItem("savedSearches", JSON.stringify(savedSearches)); // Save to localStorage
   };
@@ -38,9 +39,7 @@ export default function Plants() {
 
   return (
     <div className="plants">
-
-     
-      <h1>Discover Our Plant Collection</h1> 
+      <h1>Discover Our Plant Collection</h1>
       <div className="search-and-help">
         <Search onSearch={handleSearch} />
         <button className="help-button" onClick={openHelpModal}>
@@ -53,7 +52,7 @@ export default function Plants() {
       {isHelpModalOpen && (
         <div
           className="help-modal-overlay"
-          onClick={closeHelpModalOnOverlayClick} 
+          onClick={closeHelpModalOnOverlayClick}
         >
           <div className="help-modal">
             <span className="close-modal" onClick={closeHelpModal}>
@@ -78,7 +77,7 @@ export default function Plants() {
               </li>
             </ul>
             <p>
-              We also have an AI tool in the bottom-left corner of the page to
+              We also have an AI tool in the bottom-right corner of the page to
               assist you with any further questions.
             </p>
             <p>

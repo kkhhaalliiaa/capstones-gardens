@@ -1,12 +1,18 @@
+.customize-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .customize-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 20px;
   text-align: center;
+  flex: 1; /* Ensures the container takes up available space */
 
   h1 {
     font-size: 2rem;
-    color: var(--color-olive);
     margin-bottom: 1.5rem;
   }
 
@@ -93,9 +99,9 @@
   }
 
   ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-
+    list-style: none; /* Remove bullets */
+    padding-left: 0; /* Remove default padding */
+    /* ...existing code... */
     li {
       font-size: 1rem;
       color: var(--color-brown);

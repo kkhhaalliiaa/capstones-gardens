@@ -20,21 +20,20 @@ const DropdownFilter = ({ onFilter }) => {
 
   return (
     <div className="dropdown-filter">
-      <label>
+      {/* <label>
         Type:
         <select
           value={selectedType}
           onChange={(e) => setSelectedType(e.target.value)}
         >
           <option value="">All</option>
-          <option value="Plant">Plant</option>
           <option value="Tree">Tree</option>
           <option value="Herb">Herb</option>
           <option value="Vines">Vines</option>
           <option value="Roots">Roots</option>
           <option value="Tall trees">Tall trees</option>
         </select>
-      </label>
+      </label> */}
       <label>
         Light Requirement:
         <select
