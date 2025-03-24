@@ -22,21 +22,9 @@ const Login = () => {
       valid = false;
     }
 
-    if (!password.trim()) {
-      errors = "Password is required.";
-      valid = false;
-    } else if (password.length < 8) {
-      errors = "Password must be at least 8 characters long.";
-      valid = false;
-    } else if (!/(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/.test(password)) {
-      errors = "Password must contain at least one uppercase letter, one number, and one special character.";
-      valid = false;
-    }
-
     setError(errors);
     return valid;
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -47,31 +35,31 @@ const Login = () => {
     // Sanitize inputs
     const sanitizedEmail = DOMPurify.sanitize(email);
     const sanitizedPassword = DOMPurify.sanitize(password);
-  
+
     if (!sanitizedEmail || !sanitizedPassword) {
       setError("Please enter both email and password.");
       return;
     }
-  
+
     try {
       const response = await axios.post("http://localhost:3002/login", {
         email: sanitizedEmail,
         password: sanitizedPassword,
       });
-  
+
       if (response.status === 200) {
         const { token, user } = response.data;
-  
+
         // Add the email to the user object
         const userWithEmail = {
           ...user,
           email: sanitizedEmail, // Manually add the email
         };
-  
+
         // Save token and user data to localStorage
         localStorage.setItem("token", token);
         localStorage.setItem("user", JSON.stringify(userWithEmail));
-  
+
         // Track logged-in users
         const loggedInUsers =
           JSON.parse(localStorage.getItem("loggedInUsers")) || [];
@@ -81,7 +69,7 @@ const Login = () => {
           loginTime: new Date().toISOString(),
         });
         localStorage.setItem("loggedInUsers", JSON.stringify(loggedInUsers));
-  
+
         navigate("/"); // Redirect after login
       }
     } catch (err) {
