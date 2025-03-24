@@ -23,7 +23,6 @@ const Navbar = () => {
     }
   }, [user]); // Re-run this effect when the user changes
 
-
   const handleAccountClick = () => {
     if (user) {
       if (isAdmin) {
@@ -59,6 +58,9 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink to="/plants">Plants</NavLink>
+        </li>
+        <li>
+          <NavLink to="/customize">Customize</NavLink>
         </li>
         <li>
           {user ? (

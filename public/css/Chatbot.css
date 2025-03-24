@@ -5,36 +5,62 @@
     z-index: 1000;
 }
 
+.chatbot-bubble {
+    position: absolute;
+    bottom: 70px; /* Adjusted for larger bubble */
+    right: 0;
+    background-color: var(--color-olive);
+    color: white;
+    padding: 15px 20px; /* Increased padding */
+    border-radius: 25px; /* Slightly larger border radius */
+    font-size: 1.1rem; /* Increased font size */
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    animation: fadeIn 0.5s ease-in-out;
+    max-width: 250px; /* Limit the width for better readability */
+    text-align: center; /* Center-align text */
+}
+
+.chatbot-bubble:hover {
+    background-color: var(--color-tan);
+    transform: scale(1.05); /* Slight hover effect */
+}
+
 /* Floating Chatbot Button */
 .chatbot-icon {
-    width: 60px;
-    height: 60px;
-    background-color: #8b9a72;
+    width: 70px; /* Increased size */
+    height: 70px; /* Increased size */
+    background-color: var(--color-olive);
     color: white;
-    font-size: 2rem;
+    font-size: 2.5rem; /* Increased font size */
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
 .chatbot-icon:hover {
-    transform: scale(1.1);
+    transform: scale(1.2); /* Increased hover effect */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+}
+
+.chatbot-icon.open {
+    background-color: var(--color-tan);
 }
 
 /* Open Chatbox */
 .chatbox {
     position: fixed;
-    bottom: 80px;
+    bottom: 90px; /* Adjusted for larger icon */
     right: 20px;
-    width: 320px;
-    height: 420px;
+    width: 350px; /* Increased width */
+    height: 450px; /* Increased height */
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px; /* Slightly larger border radius */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -45,9 +71,9 @@
 .chatbox-header {
     background-color: #8b9a72;
     color: white;
-    padding: 12px;
+    padding: 14px; /* Slightly larger padding */
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem; /* Slightly larger font size */
     font-weight: bold;
     display: flex;
     justify-content: space-between; /* Ensures X button stays on the right */
@@ -139,27 +165,29 @@
 /* Chatbox Input */
 .chatbox-input {
     display: flex;
-    padding: 10px;
+    padding: 12px; /* Slightly larger padding */
     border-top: 1px solid #ddd;
     background-color: white;
 }
 
 .chatbox-input input {
     flex-grow: 1;
-    padding: 8px;
+    padding: 10px; /* Increased padding */
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px; /* Slightly larger border radius */
     outline: none;
+    font-size: 1rem; /* Slightly larger font size */
 }
 
 .chatbox-input button {
-    padding: 8px 12px;
-    margin-left: 8px;
+    padding: 10px 14px; /* Increased padding */
+    margin-left: 10px; /* Slightly larger margin */
     border: none;
     background-color: #8b9a72;
     color: white;
-    border-radius: 4px;
+    border-radius: 6px; /* Slightly larger border radius */
     cursor: pointer;
+    font-size: 1rem; /* Slightly larger font size */
 }
 
 .chatbox-input button:hover {
@@ -206,10 +234,10 @@
 
 @media (max-width: 480px) {
     .chatbox {
-        width: 250px;
-        height: 65vh;
-        bottom: 5px;
-        right: 5px;
+        width: 280px; /* Increased width for mobile */
+        height: 70vh; /* Adjusted height */
+        bottom: 10px;
+        right: 10px;
     }
 
     .message {
@@ -225,8 +253,19 @@
     }
 
     .chatbot-icon {
-        width: 45px; 
-        height: 45px;
-        font-size: 1.6rem;
+        width: 55px; /* Increased size for mobile */
+        height: 55px;
+        font-size: 2rem; /* Adjusted font size */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

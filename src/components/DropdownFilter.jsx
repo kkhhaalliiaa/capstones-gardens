@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../public/css/DropdownFilter.scss";
 
 const DropdownFilter = ({ onFilter }) => {
-  const [selectedType, setSelectedType] = useState("");
+  const [selectedLayer, setSelectedLayer] = useState("");
   const [selectedLightRequirement, setSelectedLightRequirement] = useState("");
   const [selectedHardinessZone, setSelectedHardinessZone] = useState("");
   const [selectedWaterRequirement, setSelectedWaterRequirement] = useState("");
@@ -10,7 +10,7 @@ const DropdownFilter = ({ onFilter }) => {
 
   const handleFilter = () => {
     onFilter({
-      type: selectedType,
+      layer: selectedLayer,
       lightRequirement: selectedLightRequirement,
       hardinessZone: selectedHardinessZone,
       waterRequirement: selectedWaterRequirement,
@@ -21,18 +21,17 @@ const DropdownFilter = ({ onFilter }) => {
   return (
     <div className="dropdown-filter">
       <label>
-        Type:
+        Layer:
         <select
-          value={selectedType}
-          onChange={(e) => setSelectedType(e.target.value)}
+          value={selectedLayer}
+          onChange={(e) => setSelectedLayer(e.target.value)}
         >
           <option value="">All</option>
-          <option value="Plant">Plant</option>
-          <option value="Tree">Tree</option>
-          <option value="Herb">Herb</option>
           <option value="Vines">Vines</option>
-          <option value="Roots">Roots</option>
+          <option value="Trees">Trees</option>
           <option value="Tall trees">Tall trees</option>
+          <option value="Herbs">Herbs</option>
+          <option value="Roots">Roots</option>
         </select>
       </label>
       <label>
@@ -48,7 +47,7 @@ const DropdownFilter = ({ onFilter }) => {
         </select>
       </label>
       <label>
-        USDA Hardiness Zone:
+        USDA Hardiness Zone(Planting Zone):
         <select
           value={selectedHardinessZone}
           onChange={(e) => setSelectedHardinessZone(e.target.value)}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../public/css/Team.css";
 
 const leadershipData = [
@@ -139,7 +140,9 @@ const App = () => {
             mission to teach sustainable food practices, we’d love to hear from
             you!
           </p>
-          <button className="btn">Join Today!</button>
+          <Link to="/signup" className="btn">
+            <a href="/signup"></a>Join Today!
+          </Link>
         </section>
       </main>
     </div>
