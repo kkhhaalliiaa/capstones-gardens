@@ -22,14 +22,11 @@ const Login = () => {
       valid = false;
     }
 
-<<<<<<< HEAD
     if (!password.trim()) {
       errors = "Password is required.";
       valid = false;
     }
 
-=======
->>>>>>> origin/dev
     setError(errors);
     return valid;
   };
@@ -50,10 +47,13 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("https://capstones-gardens-1h6s.onrender.com/login", {
-        email: sanitizedEmail,
-        password: sanitizedPassword,
-      });
+      const response = await axios.post(
+        "https://capstones-gardens-1h6s.onrender.com/login",
+        {
+          email: sanitizedEmail,
+          password: sanitizedPassword,
+        }
+      );
 
       if (response.status === 200) {
         const { token, user } = response.data;
