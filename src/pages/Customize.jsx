@@ -50,7 +50,7 @@ const Customize = () => {
           />
         </label>
         <label>
-          USDA Hardiness Zone:
+          USDA Hardiness Zone(Planting Zone):
           <input
             type="text"
             value={zone}

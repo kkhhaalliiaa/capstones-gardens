@@ -64,6 +64,9 @@ const PlantCard = ({ plant }) => {
               &times;
             </span>
             <h2>{plant.name}</h2>
+            <span className="favorite-icon" onClick={toggleFavorite}>
+              {isFavorite ? <FaHeart /> : <FaRegHeart />}
+            </span>
             <p>
               <strong>Scientific Name:</strong> {plant.scientific_name}
             </p>
@@ -97,9 +100,6 @@ const PlantCard = ({ plant }) => {
                 ))}
               </div>
             )}
-            <span className="favorite-icon" onClick={toggleFavorite}>
-              {isFavorite ? <FaHeart /> : <FaRegHeart />}
-            </span>
           </div>
         </div>
       )}

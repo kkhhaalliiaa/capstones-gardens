@@ -15,7 +15,7 @@ const Home = () => {
             <br />
             combat climate change and build food security in uncertain times.
           </p>
-          <a href="#" className="btn">
+          <a href="/plants" className="btn">
             Get Started Today
           </a>
         </div>
@@ -121,12 +121,11 @@ const Home = () => {
             <br />
             From window sills to backyards, everyone can grow something!
           </p>
-          <a href="#" className="btn">
-            Register for a Workshop
+          <a href="/signup" className="btn">
+            Join the community
           </a>
         </div>
       </section>
-
 
       <div className="section-divider-container">
         <span className="divider-text">Grow With Us</span>

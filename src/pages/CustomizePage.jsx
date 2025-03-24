@@ -51,7 +51,7 @@ const CustomizePage = () => {
             />
           </label>
           <label htmlFor="zone">
-            USDA Hardiness Zone:
+            USDA Hardiness Zone(Planting Zone):
             <input
               type="text"
               id="zone"

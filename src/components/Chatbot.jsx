@@ -37,6 +37,11 @@ const Chatbot = () => {
 
     return (
         <div className="chatbot-container">
+            {!isOpen && (
+                <div className="chatbot-bubble" onClick={toggleChatbot}>
+                    Need Help?
+                </div>
+            )}
             <div className={`chatbot-icon ${isOpen ? "open" : ""}`} onClick={toggleChatbot}>
                 {isOpen ? <X /> : <Flower />}
             </div>
