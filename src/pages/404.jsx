@@ -1,14 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import "../../public/css/404.scss"; // Import the CSS file for styling
 
 const NotFoundPage = () => {
-  return (
-    <div className="not-found-page">
-      <h1>404 - Page Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
-      <NavLink to="/">Go to Home</NavLink>
-    </div>
-  );
+  return <div className="not-found-page"></div>;
 };
 
 export default NotFoundPage;
