@@ -31,7 +31,10 @@ const PlantList = ({ query, filters }) => {
 
   const filteredPlants = data.plants.filter((plant) => {
     return (
-      (!filters.type || plant.type.includes(filters.type)) &&
+      (!filters.layer ||
+        plant.data.some(
+          (item) => item.key === "Layer" && item.value.includes(filters.layer)
+        )) &&
       (!filters.lightRequirement ||
         plant.data.some(
           (item) =>

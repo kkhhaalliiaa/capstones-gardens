@@ -1,0 +1,144 @@
+.customize-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.customize-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  flex: 1; /* Ensures the container takes up available space */
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .customize-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    label {
+      font-size: 1.1rem;
+      color: var(--color-brown);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    input {
+      padding: 0.5rem;
+      border: 1px solid var(--color-sage);
+      border-radius: 5px;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    button {
+      padding: 0.7rem 1.5rem;
+      background-color: var(--color-olive);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: var(--color-tan);
+      }
+
+      &:disabled {
+        background-color: var(--color-sage);
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .customize-response {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: var(--color-white);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      font-size: 1.5rem;
+      color: var(--color-olive);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--color-brown);
+      line-height: 1.5;
+    }
+  }
+}
+
+.instruction-box {
+  background-color: var(--color-tan);
+  border-radius: 5px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    font-size: 1.2rem;
+    color: var(--color-olive);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--color-brown);
+    line-height: 1.5;
+  }
+
+  ul {
+    list-style: none; /* Remove bullets */
+    padding-left: 0; /* Remove default padding */
+  }
+
+  ul li {
+    font-size: 1rem;
+    color: var(--color-brown);
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+}
+
+footer {
+  margin-top: auto; /* Push the footer to the bottom */
+}
+
+@media (max-width: 355px) {
+  .customize-page {
+    padding: 0 1rem; /* Add padding to prevent content overflow */
+  }
+
+  .customize-container {
+    max-width: 100%; /* Ensure the container adjusts to the screen width */
+    padding: 1rem; /* Reduce padding for smaller screens */
+  }
+
+  .customize-response {
+    font-size: 0.9rem; /* Adjust font size for better readability */
+    padding: 1rem; /* Reduce padding for smaller screens */
+  }
+
+  .instruction-box {
+    padding: 1rem; /* Reduce padding for smaller screens */
+  }
+
+  .instruction-box h3 {
+    font-size: 1rem; /* Adjust heading size */
+  }
+
+  .instruction-box ul li {
+    font-size: 0.9rem; /* Adjust list item font size */
+  }
+}

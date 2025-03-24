@@ -9,6 +9,14 @@ $text-medium: #555;
   max-width: 1135px;
   margin: 0 auto;
   padding: 2rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    flex-direction: column; // Keep user info at the top
+  }
 }
 
 .user {
@@ -70,6 +78,45 @@ $text-medium: #555;
   }
 }
 
+.saved-searches,
+.favorited-plants {
+  flex: 1;
+  background-color: $color-tan;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.saved-searches {
+  margin-right: 1rem;
+}
+
+.favorited-plants {
+  margin-left: 1rem;
+}
+
+.saved-searches h3,
+.favorited-plants h3 {
+  font-size: 1.8rem;
+  color: $color-olive;
+  margin-bottom: 1.8rem;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: $color-sage;
+    border-radius: 5px;
+  }
+}
+
 .saved-searches {
   background-color: $color-tan;
   border-radius: 10px;
@@ -84,7 +131,7 @@ $text-medium: #555;
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -10px;
       left: 50%;
@@ -150,6 +197,13 @@ $text-medium: #555;
     font-size: 1.1rem;
     padding: 2rem 0;
   }
+}
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 // Media query for responsive design
